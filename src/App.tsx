@@ -1,7 +1,8 @@
 import React from 'react';
+import { PrimaryButton } from './components/atoms/button/PrimaryButton';
 
 export const App = () => {
   return (
-    <h1>hello world</h1>
+    <PrimaryButton>ボタン</PrimaryButton>
   );
 }
