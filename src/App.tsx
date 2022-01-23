@@ -1,7 +1,6 @@
-import React from 'react';
+import React from "react";
+import { PrimaryButton } from "./components/atoms/button/PrimaryButton";
 
-export const App = () => {
-  return (
-    <h1>hello world</h1>
-  );
+export function App() {
+  return <PrimaryButton>ボタン</PrimaryButton>;
 }
