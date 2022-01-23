@@ -1,6 +1,13 @@
 import React from "react";
-import { PrimaryButton } from "./components/atoms/button/PrimaryButton";
+import { BackButton } from "./components/atoms/button/BackButton";
+import { NextButton } from "./components/atoms/button/NextButton";
+import { Wrapper } from "./components/molecules/wrapper/Wrapper";
 
 export function App() {
-  return <PrimaryButton>ボタン</PrimaryButton>;
+  return (
+    <Wrapper>
+      <BackButton>BACK</BackButton>
+      <NextButton>NEXT</NextButton>
+    </Wrapper>
+  );
 }
