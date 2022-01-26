@@ -11,6 +11,5 @@ export const Wrapper: VFC<Props> = (props) => {
 };
 
 const SWrapper = styled.div`
-  display: flex;
-  justify-content: space-around;
+  padding: 5px;
 `;
