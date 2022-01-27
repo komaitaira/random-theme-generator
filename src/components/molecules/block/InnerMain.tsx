@@ -11,5 +11,5 @@ export const InnerMain: VFC<Props> = (props) => {
 };
 
 const SInnerMain = styled.div`
-  height: 65vh;
+  height: 60vh;
 `;

@@ -12,5 +12,6 @@ export const Content: VFC<Props> = (props) => {
 
 const SContent = styled.div`
   background-color: #ffe4c5;
-  height: 30vh;
+  height: 35vh;
+  position: relative;
 `;

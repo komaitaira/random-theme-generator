@@ -12,5 +12,5 @@ export const Main: VFC<Props> = (props) => {
 
 const SMain = styled.div`
   background-color: #092856;
-  height: 70vh;
+  height: 65vh;
 `;
