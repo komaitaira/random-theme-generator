@@ -11,5 +11,5 @@ export const Wrapper: VFC<Props> = (props) => {
 };
 
 const SWrapper = styled.div`
-  padding: 5px;
+  padding: 2vw;
 `;
