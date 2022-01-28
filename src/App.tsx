@@ -5,6 +5,7 @@ import { InnerMain } from "./components/templates/block/InnerMain";
 import { Main } from "./components/templates/block/Main";
 import { Buttons } from "./components/molecules/Buttons";
 import { MainContainer } from "./components/molecules/MainContainer";
+import { ContentContainer } from "./components/molecules/ContentContainer";
 
 export function App() {
   return (
@@ -16,6 +17,7 @@ export function App() {
         <Wave />
       </Main>
       <Content>
+        <ContentContainer />
         <Buttons />
       </Content>
     </>

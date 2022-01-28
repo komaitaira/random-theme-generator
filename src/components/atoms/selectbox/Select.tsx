@@ -10,7 +10,7 @@ export const Select: VFC<Props> = (props) => {
   return <SSelect>{children}</SSelect>;
 };
 export const SSelect = styled.select`
-  max-width: 330px;
+  max-width: 340px;
   width: 100%;
   height: 40px;
   margin: 5vh 0;

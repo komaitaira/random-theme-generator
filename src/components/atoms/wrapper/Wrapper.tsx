@@ -10,6 +10,6 @@ export const Wrapper: VFC<Props> = (props) => {
   return <SWrapper>{children}</SWrapper>;
 };
 
-const SWrapper = styled.div`
+export const SWrapper = styled.div`
   padding: 2vw;
 `;
