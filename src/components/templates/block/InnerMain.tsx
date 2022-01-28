@@ -5,11 +5,11 @@ type Props = {
   children: ReactNode;
 };
 
-export const Wrapper: VFC<Props> = (props) => {
+export const InnerMain: VFC<Props> = (props) => {
   const { children } = props;
-  return <SWrapper>{children}</SWrapper>;
+  return <SInnerMain>{children}</SInnerMain>;
 };
 
-const SWrapper = styled.div`
-  padding: 5px;
+const SInnerMain = styled.div`
+  height: 60vh;
 `;

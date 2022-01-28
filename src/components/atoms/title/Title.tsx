@@ -1,13 +1,12 @@
-import React, { VFC } from "react";
 import styled from "styled-components";
-import { Wrapper } from "../molecules/wrapper/Wrapper";
+import React, { VFC } from "react";
 
 export const Title: VFC = () => {
   return (
-    <Wrapper>
+    <>
       <STitle>Random Theme Generator</STitle>
       <SSubTitle>for photographer</SSubTitle>
-    </Wrapper>
+    </>
   );
 };
 

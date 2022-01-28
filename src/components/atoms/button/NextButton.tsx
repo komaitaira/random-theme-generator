@@ -14,4 +14,6 @@ export const NextButton: VFC<Props> = (props) => {
 const SButton = styled(BaseButton)`
   background-color: #f6aa64;
   color: #fff;
+  margin-left: 1vw;
+  margin-right: 2vw;
 `;

@@ -14,4 +14,6 @@ export const BackButton: VFC<Props> = (props) => {
 const SButton = styled(BaseButton)`
   background-color: #fff;
   color: #f6aa64;
+  margin-right: 1vw;
+  margin-left: 2vw;
 `;

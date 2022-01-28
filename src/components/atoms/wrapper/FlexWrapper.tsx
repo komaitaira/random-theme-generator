@@ -10,7 +10,7 @@ export const FlexWrapper: VFC<Props> = (props) => {
   return <SFlexWrapper>{children}</SFlexWrapper>;
 };
 
-const SFlexWrapper = styled.div`
+export const SFlexWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
