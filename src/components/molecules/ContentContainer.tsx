@@ -1,5 +1,7 @@
 import React, { ReactNode, VFC } from "react";
+import { useRecoilValue } from "recoil";
 import styled from "styled-components";
+import { pageSgate } from "../../store/pageState";
 import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
 
@@ -10,11 +12,14 @@ import { SWrapper } from "../atoms/wrapper/Wrapper";
 
 export const ContentContainer: VFC = () => {
   // const { children } = props;
+  const pageInfo = useRecoilValue(pageSgate);
+  const currentPageValue = pageInfo.currentPage;
+  const descriptionValue = pageInfo.description;
   return (
     <FlexWrapper>
       <ExtendWrapper>
-        <SDescription>表示するテーマ数を決めましょう</SDescription>
-        <SProgress>1/3</SProgress>
+        <SDescription>{descriptionValue["theme"]}</SDescription>
+        <SProgress>{currentPageValue["theme"]}/3</SProgress>
       </ExtendWrapper>
     </FlexWrapper>
   );
