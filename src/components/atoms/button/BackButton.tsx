@@ -1,4 +1,5 @@
 import React, { ReactNode, VFC } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { BaseButton } from "./BaseButton";
 
@@ -8,7 +9,8 @@ type Props = {
 
 export const BackButton: VFC<Props> = (props) => {
   const { children } = props;
-  return <SButton>{children}</SButton>;
+  const navigate = useNavigate();
+  return <SButton onClick={() => navigate(-1)}>{children}</SButton>;
 };
 
 const SButton = styled(BaseButton)`
