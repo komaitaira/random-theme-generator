@@ -5,7 +5,7 @@ type Props = {
   children: ReactNode;
 };
 
-export const Select: VFC<Props> = (props) => {
+export const BaseSelect: VFC<Props> = (props) => {
   const { children } = props;
   return <SSelect>{children}</SSelect>;
 };

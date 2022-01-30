@@ -2,7 +2,7 @@ import React, { ReactNode, VFC } from "react";
 import styled from "styled-components";
 
 type Props = {
-  children: ReactNode;
+  children?: ReactNode;
 };
 
 export const Content: VFC<Props> = (props) => {
