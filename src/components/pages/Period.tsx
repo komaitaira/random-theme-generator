@@ -1,9 +1,9 @@
 import React, { VFC } from "react";
-import { Select } from "../atoms/selectbox/Select";
 import { Title } from "../atoms/title/Title";
 import { Buttons } from "../organisms/Operation";
 import { ContentContainer } from "../molecules/ContentContainer";
 import { DefaultLayout } from "../templates/DefaultLayout";
+import { PeriodSelect } from "../atoms/selectbox/PeriodSelect";
 
 export const Period: VFC = () => {
   return (
@@ -11,14 +11,7 @@ export const Period: VFC = () => {
       innerMainChildren={
         <>
           <Title />
-          <Select>
-            <option>撮影期限を選択してください</option>
-            <option value="one-week">1週間以内</option>
-            <option value="one-month">1ヶ月以内</option>
-            <option value="three-month">3ヶ月以内</option>
-            <option value="six-month">6ヶ月以内</option>
-            <option value="one-year">1年以内</option>
-          </Select>
+          <PeriodSelect />
         </>
       }
       contentChildren={
