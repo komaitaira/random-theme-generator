@@ -1,24 +1,18 @@
-import React, { ReactNode, VFC } from "react";
+import React, { VFC } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { pageSgate } from "../../store/pageState";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
 
-// 文言は後で変わるので、Propsはコメントアウトしておく
-// type Props = {
-//   children: ReactNode;
-// };
-
 export const ContentContainer: VFC = () => {
-  // const { children } = props;
   const pageInfo = useRecoilValue(pageSgate);
   const currentPageValue = pageInfo.currentPage;
   const descriptionValue = pageInfo.description;
   return (
     <ExtendWrapper>
       <SDiv>
-        <SDescription>{descriptionValue["theme"]}</SDescription>
-        <SProgress>{currentPageValue["theme"]}/3</SProgress>
+        <SDescription>{descriptionValue}</SDescription>
+        <SProgress>{currentPageValue}/3</SProgress>
       </SDiv>
     </ExtendWrapper>
   );
