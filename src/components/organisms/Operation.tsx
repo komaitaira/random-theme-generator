@@ -7,7 +7,7 @@ import { SBackButton } from "../atoms/button/Buttons";
 import { SNextButton } from "../atoms/button/Buttons";
 import { SFlexWrapper } from "../atoms/wrapper/FlexWrapper";
 
-export const Buttons: VFC = () => {
+export const Operation: VFC = () => {
   const [pageInfo, setPageInfo] = useRecoilState(pageSgate);
   const navigate = useNavigate();
   console.log(pageInfo);
