@@ -14,3 +14,10 @@ export const SBackButton = styled(BaseButton)`
   margin-right: 1vw;
   margin-left: 2vw;
 `;
+
+export const SGenerateButton = styled(BaseButton)`
+  background-color: #092856;
+  color: #f6aa64;
+  margin-right: 1vw;
+  margin-left: 2vw;
+`;

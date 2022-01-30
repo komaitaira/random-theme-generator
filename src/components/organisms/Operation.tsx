@@ -3,16 +3,20 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { pageSgate } from "../../store/pageState";
-import { SBackButton } from "../atoms/button/Buttons";
-import { SNextButton } from "../atoms/button/Buttons";
 import { SFlexWrapper } from "../atoms/wrapper/FlexWrapper";
+import {
+  SBackButton,
+  SNextButton,
+  SGenerateButton,
+} from "../atoms/button/Buttons";
 
 export const Operation: VFC = () => {
   const [pageInfo, setPageInfo] = useRecoilState(pageSgate);
+  const PageNow = pageInfo.currentPage;
   const navigate = useNavigate();
   console.log(pageInfo);
   const onClickBack = () => {
-    switch (pageInfo.currentPage) {
+    switch (PageNow) {
       case 1:
         break;
       case 2:
@@ -29,13 +33,11 @@ export const Operation: VFC = () => {
         });
         navigate("/period");
         break;
-      default:
-        break;
     }
   };
 
   const onClickNext = () => {
-    switch (pageInfo.currentPage) {
+    switch (PageNow) {
       case 1:
         setPageInfo({
           currentPage: 2,
@@ -56,14 +58,20 @@ export const Operation: VFC = () => {
           description: "テーマ生成中...",
         });
         break;
-      default:
-        break;
     }
+  };
+
+  const onClickGenerate = () => {
+    alert("generate");
   };
   return (
     <ExtendFlexWrapper>
       <SBackButton onClick={onClickBack}>BACK</SBackButton>
-      <SNextButton onClick={onClickNext}>NEXT</SNextButton>
+      {PageNow === 3 ? (
+        <SGenerateButton onClick={onClickGenerate}>GENERATE</SGenerateButton>
+      ) : (
+        <SNextButton onClick={onClickNext}>NEXT</SNextButton>
+      )}
     </ExtendFlexWrapper>
   );
 };
