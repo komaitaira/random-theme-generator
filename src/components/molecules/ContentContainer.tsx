@@ -1,11 +1,11 @@
 import React, { VFC } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
-import { pageSgate } from "../../store/pageState";
+import { pageState } from "../../store/pageState";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
 
 export const ContentContainer: VFC = () => {
-  const pageInfo = useRecoilValue(pageSgate);
+  const pageInfo = useRecoilValue(pageState);
   const currentPageValue = pageInfo.currentPage;
   const descriptionValue = pageInfo.description;
   return (

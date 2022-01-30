@@ -1,9 +1,21 @@
 import React, { VFC } from "react";
 import { BaseSelect } from "./BaseSelect";
+import { useSetRecoilState } from "recoil";
+import { selectedPeriodState } from "../../../store/selectState";
 
 export const PeriodSelect: VFC = () => {
+  const setSelect = useSetRecoilState(selectedPeriodState);
+  const onChangePeriod = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const text = e.target.selectedOptions[0].textContent;
+    if (typeof text !== "string") {
+      return;
+    }
+    setSelect({
+      selectedPeriod: text,
+    });
+  };
   return (
-    <BaseSelect>
+    <BaseSelect onChangeSelect={onChangePeriod}>
       <option>撮影期限を選択してください</option>
       <option value="one-week">1週間以内</option>
       <option value="one-month">1ヶ月以内</option>

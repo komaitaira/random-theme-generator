@@ -1,6 +1,6 @@
 import { atom } from "recoil";
 
-export const pageSgate = atom({
+export const pageState = atom({
   key: "pageState",
   default: {
     currentPage: 1,
