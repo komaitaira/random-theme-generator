@@ -11,6 +11,7 @@ export const SNextButton = styled(BaseButton)`
 export const SBackButton = styled(BaseButton)`
   background-color: #fff;
   color: #f6aa64;
+  border: 1px solid #f6aa64;
   margin-right: 1vw;
   margin-left: 2vw;
 `;
