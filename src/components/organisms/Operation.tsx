@@ -2,7 +2,7 @@ import React, { VFC } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
-import { pageSgate } from "../../store/pageState";
+import { pageState } from "../../store/pageState";
 import { SFlexWrapper } from "../atoms/wrapper/FlexWrapper";
 import {
   SBackButton,
@@ -11,7 +11,7 @@ import {
 } from "../atoms/button/Buttons";
 
 export const Operation: VFC = () => {
-  const [pageInfo, setPageInfo] = useRecoilState(pageSgate);
+  const [pageInfo, setPageInfo] = useRecoilState(pageState);
   const PageNow = pageInfo.currentPage;
   const navigate = useNavigate();
   console.log(pageInfo);

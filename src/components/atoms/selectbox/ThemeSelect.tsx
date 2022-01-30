@@ -1,9 +1,17 @@
 import React, { VFC } from "react";
 import { BaseSelect } from "./BaseSelect";
+import { useSetRecoilState } from "recoil";
+import { selectedThemeState } from "../../../store/selectState";
 
 export const ThemeSelect: VFC = () => {
+  const setSelect = useSetRecoilState(selectedThemeState);
+  const onChangeTheme = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelect({
+      selectedTheme: e.target.value,
+    });
+  };
   return (
-    <BaseSelect>
+    <BaseSelect onChangeSelect={onChangeTheme}>
       <option>表示するテーマ数を選択してください</option>
       <option value="1">1</option>
       <option value="2">2</option>
