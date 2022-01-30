@@ -13,7 +13,7 @@ export const Page404: VFC = () => {
             <br />
             ページが見つかりませんでした。
           </SMessage>
-          <StyledLink to="/">Back to Home?</StyledLink>
+          <StyledLink to="/">Return to The Home?</StyledLink>
         </>
       }
     ></DefaultLayout>
