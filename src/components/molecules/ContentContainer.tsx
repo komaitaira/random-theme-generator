@@ -2,7 +2,6 @@ import React, { ReactNode, VFC } from "react";
 import { useRecoilValue } from "recoil";
 import styled from "styled-components";
 import { pageSgate } from "../../store/pageState";
-import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
 
 // 文言は後で変わるので、Propsはコメントアウトしておく
@@ -16,17 +15,28 @@ export const ContentContainer: VFC = () => {
   const currentPageValue = pageInfo.currentPage;
   const descriptionValue = pageInfo.description;
   return (
-    <FlexWrapper>
-      <ExtendWrapper>
+    <ExtendWrapper>
+      <SDiv>
         <SDescription>{descriptionValue["theme"]}</SDescription>
         <SProgress>{currentPageValue["theme"]}/3</SProgress>
-      </ExtendWrapper>
-    </FlexWrapper>
+      </SDiv>
+    </ExtendWrapper>
   );
 };
 
 const ExtendWrapper = styled(SWrapper)`
-  transform: translateY(-6vh);
+  text-align: center;
+  height: 23vh;
+  position: relative;
+`;
+
+const SDiv = styled.div`
+  position: absolute;
+  padding: 2vw;
+  top: 50%;
+  right: 0;
+  left: 0;
+  transform: translateY(-50%);
 `;
 
 const SDescription = styled.h3`

@@ -14,7 +14,7 @@ export const Buttons: VFC = () => {
 };
 
 const ExtendFlexWrapper = styled(SFlexWrapper)`
-  height: 33%;
+  height: 10vh;
   background-color: #fff;
   bottom: 0;
   position: absolute;
