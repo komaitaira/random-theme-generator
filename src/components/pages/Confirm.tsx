@@ -3,15 +3,19 @@ import { Title } from "../atoms/title/Title";
 import { Operation } from "../organisms/Operation";
 import { ContentContainer } from "../molecules/ContentContainer";
 import { DefaultLayout } from "../templates/DefaultLayout";
-import { ThemeSelect } from "../atoms/selectbox/ThemeSelect";
+import { SWrapper } from "../atoms/wrapper/Wrapper";
+import styled from "styled-components";
 
-export const Theme: VFC = () => {
+export const Confirm: VFC = () => {
   return (
     <DefaultLayout
       innerMainChildren={
         <>
           <Title />
-          <ThemeSelect />
+          <ExtendWrapper>
+            <SP>表示テーマ数: 10</SP>
+            <SP>撮影期限: 1ヶ月以内</SP>
+          </ExtendWrapper>
         </>
       }
       contentChildren={
@@ -23,3 +27,11 @@ export const Theme: VFC = () => {
     ></DefaultLayout>
   );
 };
+
+const ExtendWrapper = styled(SWrapper)`
+  background-color: rgba(255, 255, 255, 0.2);
+`;
+
+const SP = styled.p`
+  color: #fff;
+`;
