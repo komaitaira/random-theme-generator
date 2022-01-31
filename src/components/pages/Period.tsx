@@ -6,6 +6,7 @@ import { DefaultLayout } from "../templates/DefaultLayout";
 import { PeriodSelect } from "../atoms/selectbox/PeriodSelect";
 
 export const Period: VFC = () => {
+  console.log("Periodコンポーネント");
   return (
     <DefaultLayout
       innerMainChildren={

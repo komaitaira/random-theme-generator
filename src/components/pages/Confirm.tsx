@@ -16,6 +16,7 @@ export const Confirm: VFC = () => {
   const periodState = useRecoilValue(selectedPeriodState);
   const selectedTheme = themeState.selectedTheme;
   const selectedPeriod = periodState.selectedPeriod;
+  console.log("Confirmコンポーネント");
   return (
     <DefaultLayout
       innerMainChildren={

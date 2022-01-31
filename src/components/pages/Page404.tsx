@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { DefaultLayout } from "../templates/DefaultLayout";
 
 export const Page404: VFC = () => {
+  console.log("Page404コンポーネント");
   return (
     <DefaultLayout
       innerMainChildren={

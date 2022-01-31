@@ -6,6 +6,7 @@ import { SWrapper } from "../atoms/wrapper/Wrapper";
 
 export const ContentContainer: VFC = () => {
   const pageInfo = useRecoilValue(pageState);
+  console.log("ContentContainerコンポーネント");
   const currentPageValue = pageInfo.currentPage;
   const descriptionValue = pageInfo.description;
   return (

@@ -6,6 +6,7 @@ import { DefaultLayout } from "../templates/DefaultLayout";
 import { ThemeSelect } from "../atoms/selectbox/ThemeSelect";
 
 export const Theme: VFC = () => {
+  console.log("Themeコンポーネント");
   return (
     <DefaultLayout
       innerMainChildren={

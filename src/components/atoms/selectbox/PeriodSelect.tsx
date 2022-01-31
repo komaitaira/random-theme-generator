@@ -5,7 +5,9 @@ import { selectedPeriodState } from "../../../store/selectState";
 
 export const PeriodSelect: VFC = () => {
   const setSelect = useSetRecoilState(selectedPeriodState);
+  console.log("PeriodSelectコンポーネント");
   const onChangePeriod = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log("onChangePeriod called.");
     const text = e.target.selectedOptions[0].textContent;
     if (typeof text !== "string") {
       return;
