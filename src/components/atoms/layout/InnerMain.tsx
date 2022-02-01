@@ -7,6 +7,7 @@ type Props = {
 
 export const InnerMain: VFC<Props> = (props) => {
   const { children } = props;
+  console.log("InnerMainコンポーネント");
   return <SInnerMain>{children}</SInnerMain>;
 };
 

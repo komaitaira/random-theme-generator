@@ -12,10 +12,12 @@ import {
 
 export const Operation: VFC = () => {
   const [pageInfo, setPageInfo] = useRecoilState(pageState);
+  console.log("Operationコンポーネント");
   const PageNow = pageInfo.currentPage;
   const navigate = useNavigate();
   console.log(pageInfo);
   const onClickBack = () => {
+    console.log("onClickBack called.");
     switch (PageNow) {
       case 1:
         break;
@@ -37,6 +39,7 @@ export const Operation: VFC = () => {
   };
 
   const onClickNext = () => {
+    console.log("onClickNext called.");
     switch (PageNow) {
       case 1:
         setPageInfo({

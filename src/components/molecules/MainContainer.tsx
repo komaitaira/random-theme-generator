@@ -8,6 +8,7 @@ type Props = {
 
 export const MainContainer: VFC<Props> = (props) => {
   const { children } = props;
+  console.log("MainContainerコンポーネント");
   return (
     <FlexWrapper>
       <Wrapper>{children}</Wrapper>

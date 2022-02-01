@@ -12,6 +12,7 @@ type Props = {
 
 export const DefaultLayout: VFC<Props> = (props) => {
   const { innerMainChildren, contentChildren } = props;
+  console.log("DefaultLayoutコンポーネント");
   return (
     <>
       <Main>

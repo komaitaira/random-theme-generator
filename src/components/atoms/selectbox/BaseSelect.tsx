@@ -8,6 +8,7 @@ type Props = {
 
 export const BaseSelect: VFC<Props> = (props) => {
   const { children, onChangeSelect } = props;
+  console.log("BaseSelectコンポーネント");
   return <SSelect onChange={onChangeSelect}>{children}</SSelect>;
 };
 export const SSelect = styled.select`

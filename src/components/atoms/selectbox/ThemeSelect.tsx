@@ -5,7 +5,9 @@ import { selectedThemeState } from "../../../store/selectState";
 
 export const ThemeSelect: VFC = () => {
   const setSelect = useSetRecoilState(selectedThemeState);
+  console.log("ThemeSelectコンポーネント");
   const onChangeTheme = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    console.log("onChangeTheme called.");
     setSelect({
       selectedTheme: e.target.value,
     });

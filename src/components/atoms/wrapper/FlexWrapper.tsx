@@ -7,6 +7,7 @@ type Props = {
 
 export const FlexWrapper: VFC<Props> = (props) => {
   const { children } = props;
+  console.log("FlexWrapperコンポーネント");
   return <SFlexWrapper>{children}</SFlexWrapper>;
 };
 
