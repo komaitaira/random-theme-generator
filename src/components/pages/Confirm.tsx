@@ -11,15 +11,13 @@ import {
 export const Confirm: VFC = () => {
   const themeState = useRecoilValue(selectedThemeState);
   const periodState = useRecoilValue(selectedPeriodState);
-  const selectedTheme = themeState.selectedTheme;
-  const selectedPeriod = periodState.selectedPeriod;
   console.log("Confirmコンポーネント");
   return (
     <>
       <Title />
       <ExtendWrapper>
-        <SP>表示テーマ数: {`${selectedTheme}`}</SP>
-        <SP>撮影期限: {`${selectedPeriod}`}</SP>
+        <SP>表示テーマ数: {`${themeState.text}`}</SP>
+        <SP>撮影期限: {`${periodState.text}`}</SP>
       </ExtendWrapper>
     </>
   );
