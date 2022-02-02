@@ -1,10 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Confirm } from "../components/pages/Confirm";
-import { ContentChildren } from "../components/templates/ContentChildren";
+import { Confirm, ConfirmContentChildren } from "../components/pages/Confirms";
 import { Page404 } from "../components/pages/Page404";
-import { Period } from "../components/pages/Period";
-import { Theme } from "../components/pages/Theme";
+import { Period, PeriodContentChildren } from "../components/pages/Periods";
+import { Theme, ThemeContentChildren } from "../components/pages/Themes";
 import { DefaultLayout } from "../components/templates/DefaultLayout";
 export const Router = () => {
   return (
@@ -20,9 +19,9 @@ export const Router = () => {
         }
         contentChildren={
           <Routes>
-            <Route path="/" element={<ContentChildren />} />
-            <Route path="period" element={<ContentChildren />} />
-            <Route path="confirm" element={<ContentChildren />} />
+            <Route path="/" element={<ThemeContentChildren />} />
+            <Route path="period" element={<PeriodContentChildren />} />
+            <Route path="confirm" element={<ConfirmContentChildren />} />
           </Routes>
         }
       ></DefaultLayout>
