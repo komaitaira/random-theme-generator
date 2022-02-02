@@ -7,14 +7,19 @@ export const ThemeSelect: VFC = () => {
   const setSelect = useSetRecoilState(selectedThemeState);
   console.log("ThemeSelectコンポーネント");
   const onChangeTheme = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    console.log("onChangeTheme called.");
+    const text = e.target.selectedOptions[0].textContent;
+    if (typeof text !== "string") {
+      return;
+    }
     setSelect({
-      selectedTheme: e.target.value,
+      value: e.target.value,
+      text: text,
     });
   };
+
   return (
     <BaseSelect onChangeSelect={onChangeTheme}>
-      <option>表示するテーマ数を選択してください</option>
+      <option>テーマ数を選択してください</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>

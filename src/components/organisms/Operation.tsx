@@ -24,14 +24,14 @@ export const Operation: VFC = () => {
       case 2:
         setPageInfo({
           currentPage: 1,
-          description: "表示するテーマ数を選択してください",
+          description: "表示するテーマ数を決めましょう",
         });
         navigate("/");
         break;
       case 3:
         setPageInfo({
           currentPage: 2,
-          description: "撮影期限を選択してください",
+          description: "撮影期限を決めましょう",
         });
         navigate("/period");
         break;
@@ -44,7 +44,7 @@ export const Operation: VFC = () => {
       case 1:
         setPageInfo({
           currentPage: 2,
-          description: "撮影期限を選択してください",
+          description: "撮影期限を決めましょう",
         });
         navigate("/period");
         break;

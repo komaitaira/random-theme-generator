@@ -13,7 +13,8 @@ export const PeriodSelect: VFC = () => {
       return;
     }
     setSelect({
-      selectedPeriod: text,
+      value: e.target.value,
+      text: text,
     });
   };
   return (
