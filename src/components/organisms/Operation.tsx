@@ -4,11 +4,9 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { pageState } from "../../store/pageState";
 import { SFlexWrapper } from "../atoms/wrapper/FlexWrapper";
-import {
-  SBackButton,
-  SNextButton,
-  SGenerateButton,
-} from "../atoms/button/Buttons";
+import { NavyButton } from "../molecules/buttons/NavyButton";
+import { WhiteButton } from "../molecules/buttons/WhiteButton";
+import { OrangeButton } from "../molecules/buttons/OrangeButton";
 
 export const Operation: VFC = () => {
   const [pageInfo, setPageInfo] = useRecoilState(pageState);
@@ -69,11 +67,11 @@ export const Operation: VFC = () => {
   };
   return (
     <ExtendFlexWrapper>
-      <SBackButton onClick={onClickBack}>BACK</SBackButton>
+      <WhiteButton onClickButton={onClickBack}>BACK</WhiteButton>
       {PageNow === 3 ? (
-        <SGenerateButton onClick={onClickGenerate}>GENERATE</SGenerateButton>
+        <NavyButton onClickButton={onClickGenerate}>GENERATE</NavyButton>
       ) : (
-        <SNextButton onClick={onClickNext}>NEXT</SNextButton>
+        <OrangeButton onClickButton={onClickNext}>NEXT</OrangeButton>
       )}
     </ExtendFlexWrapper>
   );
