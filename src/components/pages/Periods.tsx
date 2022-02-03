@@ -1,7 +1,6 @@
 import React, { VFC } from "react";
 import { Title } from "../atoms/title/Title";
 import { PeriodSelect } from "../atoms/selectbox/PeriodSelect";
-import { ContentContainer } from "../molecules/ContentContainer";
 import { Operation } from "../organisms/Operation";
 import styled from "styled-components";
 import { SWrapper } from "../atoms/wrapper/Wrapper";

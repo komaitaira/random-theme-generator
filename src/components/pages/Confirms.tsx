@@ -7,7 +7,6 @@ import {
   selectedPeriodState,
   selectedThemeState,
 } from "../../store/selectState";
-import { ContentContainer } from "../molecules/ContentContainer";
 import { Operation } from "../organisms/Operation";
 
 export const Confirm: VFC = () => {
