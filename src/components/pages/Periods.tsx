@@ -5,8 +5,8 @@ import { Operation } from "../organisms/Operation";
 import styled from "styled-components";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
 
-export const Period: VFC = () => {
-  console.log("Periodコンポーネント");
+export const PrimaryPeriod: VFC = () => {
+  console.log("PrimaryPeriodコンポーネント");
   return (
     <>
       <Title />
@@ -15,8 +15,8 @@ export const Period: VFC = () => {
   );
 };
 
-export const PeriodContentChildren: VFC = () => {
-  console.log("PeriodContentChildrenコンポーネント");
+export const SecondaryPeriod: VFC = () => {
+  console.log("SecondaryPeriodコンポーネント");
   return (
     <>
       <ExtendWrapper>

@@ -5,8 +5,8 @@ import { Operation } from "../organisms/Operation";
 import styled from "styled-components";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
 
-export const Theme: VFC = () => {
-  console.log("Themeコンポーネント");
+export const PrimaryTheme: VFC = () => {
+  console.log("PrimaryThemeコンポーネント");
   return (
     <>
       <Title />
@@ -15,8 +15,8 @@ export const Theme: VFC = () => {
   );
 };
 
-export const ThemeContentChildren: VFC = () => {
-  console.log("ThemeContentChildrenコンポーネント");
+export const SecondaryTheme: VFC = () => {
+  console.log("SecondaryThemeコンポーネント");
   return (
     <>
       <ExtendWrapper>

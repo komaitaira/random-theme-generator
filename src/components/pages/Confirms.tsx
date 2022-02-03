@@ -9,10 +9,10 @@ import {
 } from "../../store/selectState";
 import { Operation } from "../organisms/Operation";
 
-export const Confirm: VFC = () => {
+export const PrimaryConfirm: VFC = () => {
   const themeState = useRecoilValue(selectedThemeState);
   const periodState = useRecoilValue(selectedPeriodState);
-  console.log("Confirmコンポーネント");
+  console.log("PrimaryConfirmコンポーネント");
   return (
     <>
       <Title />
@@ -24,8 +24,8 @@ export const Confirm: VFC = () => {
   );
 };
 
-export const ConfirmContentChildren: VFC = () => {
-  console.log("ConfirmContentChildrenコンポーネント");
+export const SecondaryConfirm: VFC = () => {
+  console.log("SecondaryConfirmコンポーネント");
   return (
     <>
       <ExtendWrapper>
