@@ -1,6 +1,6 @@
 import React, { VFC } from "react";
 import { Title } from "../atoms/title/Title";
-import { ThemeSelect } from "../atoms/selectbox/ThemeSelect";
+import { ThemeSelect } from "../molecules/selectboxes/ThemeSelect";
 import { Operation } from "../organisms/Operation";
 import styled from "styled-components";
 import { SWrapper } from "../atoms/wrapper/Wrapper";

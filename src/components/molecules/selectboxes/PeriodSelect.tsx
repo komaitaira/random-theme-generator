@@ -1,5 +1,5 @@
 import React, { VFC } from "react";
-import { BaseSelect } from "./BaseSelect";
+import { BaseSelect } from "../../atoms/selectbox/BaseSelect";
 import { useSetRecoilState } from "recoil";
 import { selectedPeriodState } from "../../../store/selectState";
 
