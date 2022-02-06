@@ -4,6 +4,9 @@ import { PeriodSelect } from "../molecules/selectboxes/PeriodSelect";
 import { Operation } from "../organisms/Operation";
 import styled from "styled-components";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
+import { WhiteButton } from "../molecules/buttons/WhiteButton";
+import { OrangeButton } from "../molecules/buttons/OrangeButton";
+import { useButton } from "../../hooks/useButton";
 
 export const PrimaryPeriod: VFC = () => {
   console.log("PrimaryPeriodコンポーネント");
@@ -17,6 +20,7 @@ export const PrimaryPeriod: VFC = () => {
 
 export const SecondaryPeriod: VFC = () => {
   console.log("SecondaryPeriodコンポーネント");
+  const { onClickBack, onClickNext } = useButton();
   return (
     <>
       <ExtendWrapper>
@@ -25,7 +29,10 @@ export const SecondaryPeriod: VFC = () => {
           <SProgress>2/3</SProgress>
         </SDiv>
       </ExtendWrapper>
-      <Operation />
+      <Operation>
+        <WhiteButton onClickButton={onClickBack}>BACK</WhiteButton>
+        <OrangeButton onClickButton={onClickNext}>NEXT</OrangeButton>
+      </Operation>
     </>
   );
 };

@@ -8,6 +8,9 @@ import {
   selectedThemeState,
 } from "../../store/selectState";
 import { Operation } from "../organisms/Operation";
+import { NavyButton } from "../molecules/buttons/NavyButton";
+import { useButton } from "../../hooks/useButton";
+import { WhiteButton } from "../molecules/buttons/WhiteButton";
 
 export const PrimaryConfirm: VFC = () => {
   const themeState = useRecoilValue(selectedThemeState);
@@ -26,6 +29,7 @@ export const PrimaryConfirm: VFC = () => {
 
 export const SecondaryConfirm: VFC = () => {
   console.log("SecondaryConfirmコンポーネント");
+  const { onClickBack, onClickNext } = useButton();
   return (
     <>
       <ExtendWrapper>
@@ -34,7 +38,10 @@ export const SecondaryConfirm: VFC = () => {
           <SProgress>3/3</SProgress>
         </SDiv>
       </ExtendWrapper>
-      <Operation />
+      <Operation>
+        <WhiteButton onClickButton={onClickBack}>BACK</WhiteButton>
+        <NavyButton onClickButton={onClickNext}>NEXT</NavyButton>
+      </Operation>
     </>
   );
 };
