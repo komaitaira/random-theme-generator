@@ -29,7 +29,7 @@ export const PrimaryConfirm: VFC = () => {
 
 export const SecondaryConfirm: VFC = () => {
   console.log("SecondaryConfirmコンポーネント");
-  const { onClickBack, onClickNext } = useButton();
+  const { onClickBack, onClickGenerate } = useButton();
   return (
     <>
       <ExtendWrapper>
@@ -39,8 +39,12 @@ export const SecondaryConfirm: VFC = () => {
         </SDiv>
       </ExtendWrapper>
       <Operation>
-        <WhiteButton onClickButton={onClickBack}>BACK</WhiteButton>
-        <NavyButton onClickButton={onClickNext}>NEXT</NavyButton>
+        <WhiteButton onClickButton={() => onClickBack("/period")}>
+          BACK
+        </WhiteButton>
+        <NavyButton onClickButton={() => onClickGenerate("/generate")}>
+          NEXT
+        </NavyButton>
       </Operation>
     </>
   );

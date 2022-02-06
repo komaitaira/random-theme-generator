@@ -1,4 +1,4 @@
-import React, { useRef, VFC } from "react";
+import React, { VFC } from "react";
 import { Title } from "../atoms/title/Title";
 import { ThemeSelect } from "../molecules/selectboxes/ThemeSelect";
 import { Operation } from "../organisms/Operation";
@@ -30,8 +30,10 @@ export const SecondaryTheme: VFC = () => {
         </SDiv>
       </ExtendWrapper>
       <Operation>
-        <WhiteButton onClickButton={onClickBack}>BACK</WhiteButton>
-        <OrangeButton onClickButton={onClickNext}>NEXT</OrangeButton>
+        <WhiteButton onClickButton={() => onClickBack("/")}>BACK</WhiteButton>
+        <OrangeButton onClickButton={() => onClickNext("/period")}>
+          NEXT
+        </OrangeButton>
       </Operation>
     </>
   );

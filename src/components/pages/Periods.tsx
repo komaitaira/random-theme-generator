@@ -7,7 +7,6 @@ import { SWrapper } from "../atoms/wrapper/Wrapper";
 import { WhiteButton } from "../molecules/buttons/WhiteButton";
 import { OrangeButton } from "../molecules/buttons/OrangeButton";
 import { useButton } from "../../hooks/useButton";
-
 export const PrimaryPeriod: VFC = () => {
   console.log("PrimaryPeriodコンポーネント");
   return (
@@ -30,8 +29,10 @@ export const SecondaryPeriod: VFC = () => {
         </SDiv>
       </ExtendWrapper>
       <Operation>
-        <WhiteButton onClickButton={onClickBack}>BACK</WhiteButton>
-        <OrangeButton onClickButton={onClickNext}>NEXT</OrangeButton>
+        <WhiteButton onClickButton={() => onClickBack("/")}>BACK</WhiteButton>
+        <OrangeButton onClickButton={() => onClickNext("/confirm")}>
+          NEXT
+        </OrangeButton>
       </Operation>
     </>
   );
