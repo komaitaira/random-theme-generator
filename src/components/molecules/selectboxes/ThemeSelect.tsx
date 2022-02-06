@@ -1,5 +1,5 @@
 import React, { VFC } from "react";
-import { BaseSelect } from "./BaseSelect";
+import { BaseSelect } from "../../atoms/selectbox/BaseSelect";
 import { useSetRecoilState } from "recoil";
 import { selectedThemeState } from "../../../store/selectState";
 
@@ -19,7 +19,7 @@ export const ThemeSelect: VFC = () => {
 
   return (
     <BaseSelect onChangeSelect={onChangeTheme}>
-      <option>テーマ数を選択してください</option>
+      <option value="">テーマ数を選択してください</option>
       <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>

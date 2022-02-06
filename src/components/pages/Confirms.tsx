@@ -2,19 +2,16 @@ import React, { VFC } from "react";
 import { Title } from "../atoms/title/Title";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
 import styled from "styled-components";
-import { useRecoilValue } from "recoil";
-import {
-  selectedPeriodState,
-  selectedThemeState,
-} from "../../store/selectState";
-import { ContentContainer } from "../molecules/ContentContainer";
 import { Operation } from "../organisms/Operation";
+import { NavyButton } from "../molecules/buttons/NavyButton";
+import { useButton } from "../../hooks/useButton";
+import { WhiteButton } from "../molecules/buttons/WhiteButton";
+import { useCheckSelected } from "../../hooks/useCheckSelected";
 
-export const Confirm: VFC = () => {
-  const themeState = useRecoilValue(selectedThemeState);
-  const periodState = useRecoilValue(selectedPeriodState);
-  console.log("Confirmコンポーネント");
-  return (
+export const PrimaryConfirm: VFC = () => {
+  const { themeState, periodState, isSelectedAll } = useCheckSelected();
+  console.log("PrimaryConfirmコンポーネント");
+  return isSelectedAll() ? (
     <>
       <Title />
       <BlurWrapper>
@@ -22,12 +19,22 @@ export const Confirm: VFC = () => {
         <SP>撮影期限: {`${periodState.text}`}</SP>
       </BlurWrapper>
     </>
+  ) : (
+    <>
+      <Title />
+      <BlurWrapper>
+        <SP>必須選択項目が選ばれていません。</SP>
+        <SP>もう一度ご確認ください。</SP>
+      </BlurWrapper>
+    </>
   );
 };
 
-export const ConfirmContentChildren: VFC = () => {
-  console.log("ConfirmContentChildrenコンポーネント");
-  return (
+export const SecondaryConfirm: VFC = () => {
+  console.log("SecondaryConfirmコンポーネント");
+  const { onClickBack, onClickGenerate } = useButton();
+  const { isSelectedAll } = useCheckSelected();
+  return isSelectedAll() ? (
     <>
       <ExtendWrapper>
         <SDiv>
@@ -35,8 +42,21 @@ export const ConfirmContentChildren: VFC = () => {
           <SProgress>3/3</SProgress>
         </SDiv>
       </ExtendWrapper>
-      <Operation />
+      <Operation>
+        <WhiteButton onClickButton={() => onClickBack("/period")}>
+          BACK
+        </WhiteButton>
+        <NavyButton onClickButton={() => onClickGenerate("/generate")}>
+          GENERATE
+        </NavyButton>
+      </Operation>
     </>
+  ) : (
+    <Operation>
+      <WhiteButton onClickButton={() => onClickBack("/period")}>
+        BACK
+      </WhiteButton>
+    </Operation>
   );
 };
 

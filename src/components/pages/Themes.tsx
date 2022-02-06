@@ -1,12 +1,15 @@
 import React, { VFC } from "react";
 import { Title } from "../atoms/title/Title";
-import { ThemeSelect } from "../atoms/selectbox/ThemeSelect";
+import { ThemeSelect } from "../molecules/selectboxes/ThemeSelect";
 import { Operation } from "../organisms/Operation";
 import styled from "styled-components";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
+import { WhiteButton } from "../molecules/buttons/WhiteButton";
+import { OrangeButton } from "../molecules/buttons/OrangeButton";
+import { useButton } from "../../hooks/useButton";
 
-export const Theme: VFC = () => {
-  console.log("Themeコンポーネント");
+export const PrimaryTheme: VFC = () => {
+  console.log("PrimaryThemeコンポーネント");
   return (
     <>
       <Title />
@@ -15,8 +18,9 @@ export const Theme: VFC = () => {
   );
 };
 
-export const ThemeContentChildren: VFC = () => {
-  console.log("ThemeContentChildrenコンポーネント");
+export const SecondaryTheme: VFC = () => {
+  console.log("SecondaryThemeコンポーネント");
+  const { onClickBack, onClickNext } = useButton();
   return (
     <>
       <ExtendWrapper>
@@ -25,7 +29,12 @@ export const ThemeContentChildren: VFC = () => {
           <SProgress>1/3</SProgress>
         </SDiv>
       </ExtendWrapper>
-      <Operation />
+      <Operation>
+        <WhiteButton onClickButton={() => onClickBack("/")}>BACK</WhiteButton>
+        <OrangeButton onClickButton={() => onClickNext("/period")}>
+          NEXT
+        </OrangeButton>
+      </Operation>
     </>
   );
 };
