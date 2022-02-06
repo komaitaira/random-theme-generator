@@ -2,26 +2,29 @@ import React, { VFC } from "react";
 import { Title } from "../atoms/title/Title";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
 import styled from "styled-components";
-import { useRecoilValue } from "recoil";
-import {
-  selectedPeriodState,
-  selectedThemeState,
-} from "../../store/selectState";
 import { Operation } from "../organisms/Operation";
 import { NavyButton } from "../molecules/buttons/NavyButton";
 import { useButton } from "../../hooks/useButton";
 import { WhiteButton } from "../molecules/buttons/WhiteButton";
+import { useCheckSelected } from "../../hooks/useCheckSelected";
 
 export const PrimaryConfirm: VFC = () => {
-  const themeState = useRecoilValue(selectedThemeState);
-  const periodState = useRecoilValue(selectedPeriodState);
+  const { themeState, periodState, isSelectedAll } = useCheckSelected();
   console.log("PrimaryConfirmコンポーネント");
-  return (
+  return isSelectedAll() ? (
     <>
       <Title />
       <BlurWrapper>
         <SP>表示テーマ数: {`${themeState.text}`}</SP>
         <SP>撮影期限: {`${periodState.text}`}</SP>
+      </BlurWrapper>
+    </>
+  ) : (
+    <>
+      <Title />
+      <BlurWrapper>
+        <SP>必須選択項目が選ばれていません。</SP>
+        <SP>もう一度ご確認ください。</SP>
       </BlurWrapper>
     </>
   );
@@ -30,7 +33,8 @@ export const PrimaryConfirm: VFC = () => {
 export const SecondaryConfirm: VFC = () => {
   console.log("SecondaryConfirmコンポーネント");
   const { onClickBack, onClickGenerate } = useButton();
-  return (
+  const { isSelectedAll } = useCheckSelected();
+  return isSelectedAll() ? (
     <>
       <ExtendWrapper>
         <SDiv>
@@ -43,10 +47,16 @@ export const SecondaryConfirm: VFC = () => {
           BACK
         </WhiteButton>
         <NavyButton onClickButton={() => onClickGenerate("/generate")}>
-          NEXT
+          GENERATE
         </NavyButton>
       </Operation>
     </>
+  ) : (
+    <Operation>
+      <WhiteButton onClickButton={() => onClickBack("/period")}>
+        BACK
+      </WhiteButton>
+    </Operation>
   );
 };
 
