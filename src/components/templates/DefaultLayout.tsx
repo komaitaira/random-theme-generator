@@ -4,7 +4,8 @@ import { InnerPrimaryArea } from "../atoms/layout/InnerPrimaryArea";
 import { PrimaryArea } from "../atoms/layout/PrimaryArea";
 import { Wave } from "../atoms/svg/Wave";
 import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
-import { Wrapper } from "../atoms/wrapper/Wrapper";
+import { SWrapper } from "../atoms/wrapper/Wrapper";
+import styled from "styled-components";
 
 type Props = {
   PrimaryContent?: ReactNode;
@@ -19,7 +20,7 @@ export const DefaultLayout: VFC<Props> = (props) => {
       <PrimaryArea>
         <InnerPrimaryArea>
           <FlexWrapper>
-            <Wrapper>{PrimaryContent}</Wrapper>
+            <ExtendWrapper>{PrimaryContent}</ExtendWrapper>
           </FlexWrapper>
         </InnerPrimaryArea>
         <Wave />
@@ -28,3 +29,7 @@ export const DefaultLayout: VFC<Props> = (props) => {
     </>
   );
 };
+
+const ExtendWrapper = styled(SWrapper)`
+  height: 32vh !important;
+`;
