@@ -5,12 +5,13 @@ type Props = {
   children: ReactNode;
 };
 
-export const Main: VFC<Props> = (props) => {
+export const PrimaryArea: VFC<Props> = (props) => {
   const { children } = props;
-  return <SMain>{children}</SMain>;
+  console.log("PrimaryAreaコンポーネント");
+  return <SPrimaryArea>{children}</SPrimaryArea>;
 };
 
-const SMain = styled.div`
+const SPrimaryArea = styled.div`
   background-color: #092856;
   height: 65vh;
 `;

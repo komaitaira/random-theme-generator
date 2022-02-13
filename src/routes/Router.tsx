@@ -1,18 +1,30 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Confirm } from "../components/pages/Confirm";
+import { PrimaryConfirm, SecondaryConfirm } from "../components/pages/Confirms";
 import { Page404 } from "../components/pages/Page404";
-import { Period } from "../components/pages/Period";
-import { Theme } from "../components/pages/Theme";
+import { PrimaryPeriod, SecondaryPeriod } from "../components/pages/Periods";
+import { PrimaryTheme, SecondaryTheme } from "../components/pages/Themes";
+import { DefaultLayout } from "../components/templates/DefaultLayout";
 export const Router = () => {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Theme />} />
-        <Route path="period" element={<Period />} />
-        <Route path="confirm" element={<Confirm />} />
-        <Route path="*" element={<Page404 />} />
-      </Routes>
+      <DefaultLayout
+        PrimaryContent={
+          <Routes>
+            <Route path="/" element={<PrimaryTheme />} />
+            <Route path="period" element={<PrimaryPeriod />} />
+            <Route path="confirm" element={<PrimaryConfirm />} />
+            <Route path="*" element={<Page404 />} />
+          </Routes>
+        }
+        SecondaryContent={
+          <Routes>
+            <Route path="/" element={<SecondaryTheme />} />
+            <Route path="period" element={<SecondaryPeriod />} />
+            <Route path="confirm" element={<SecondaryConfirm />} />
+          </Routes>
+        }
+      ></DefaultLayout>
     </BrowserRouter>
   );
 };

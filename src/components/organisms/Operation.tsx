@@ -1,79 +1,15 @@
-import React, { VFC } from "react";
-import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import React, { ReactNode, VFC } from "react";
 import styled from "styled-components";
-import { pageSgate } from "../../store/pageState";
 import { SFlexWrapper } from "../atoms/wrapper/FlexWrapper";
-import {
-  SBackButton,
-  SNextButton,
-  SGenerateButton,
-} from "../atoms/button/Buttons";
 
-export const Operation: VFC = () => {
-  const [pageInfo, setPageInfo] = useRecoilState(pageSgate);
-  const PageNow = pageInfo.currentPage;
-  const navigate = useNavigate();
-  console.log(pageInfo);
-  const onClickBack = () => {
-    switch (PageNow) {
-      case 1:
-        break;
-      case 2:
-        setPageInfo({
-          currentPage: 1,
-          description: "表示するテーマ数を選択してください",
-        });
-        navigate("/");
-        break;
-      case 3:
-        setPageInfo({
-          currentPage: 2,
-          description: "撮影期限を選択してください",
-        });
-        navigate("/period");
-        break;
-    }
-  };
+type Props = {
+  children?: ReactNode;
+};
 
-  const onClickNext = () => {
-    switch (PageNow) {
-      case 1:
-        setPageInfo({
-          currentPage: 2,
-          description: "撮影期限を選択してください",
-        });
-        navigate("/period");
-        break;
-      case 2:
-        setPageInfo({
-          currentPage: 3,
-          description: "この内容でテーマを生成します",
-        });
-        navigate("/confirm");
-        break;
-      case 3:
-        setPageInfo({
-          currentPage: 4,
-          description: "テーマ生成中...",
-        });
-        break;
-    }
-  };
-
-  const onClickGenerate = () => {
-    alert("generate");
-  };
-  return (
-    <ExtendFlexWrapper>
-      <SBackButton onClick={onClickBack}>BACK</SBackButton>
-      {PageNow === 3 ? (
-        <SGenerateButton onClick={onClickGenerate}>GENERATE</SGenerateButton>
-      ) : (
-        <SNextButton onClick={onClickNext}>NEXT</SNextButton>
-      )}
-    </ExtendFlexWrapper>
-  );
+export const Operation: VFC<Props> = (props) => {
+  const { children } = props;
+  console.log("Operationコンポーネント");
+  return <ExtendFlexWrapper>{children}</ExtendFlexWrapper>;
 };
 
 const ExtendFlexWrapper = styled(SFlexWrapper)`

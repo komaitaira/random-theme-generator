@@ -1,26 +1,35 @@
 import React, { ReactNode, VFC } from "react";
-import { Content } from "../atoms/layout/Content";
-import { InnerMain } from "../atoms/layout/InnerMain";
-import { Main } from "../atoms/layout/Main";
+import { SecondaryArea } from "../atoms/layout/SecondaryArea";
+import { InnerPrimaryArea } from "../atoms/layout/InnerPrimaryArea";
+import { PrimaryArea } from "../atoms/layout/PrimaryArea";
 import { Wave } from "../atoms/svg/Wave";
-import { MainContainer } from "../molecules/MainContainer";
+import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
+import { SWrapper } from "../atoms/wrapper/Wrapper";
+import styled from "styled-components";
 
 type Props = {
-  innerMainChildren?: ReactNode;
-  contentChildren?: ReactNode;
+  PrimaryContent?: ReactNode;
+  SecondaryContent?: ReactNode;
 };
 
 export const DefaultLayout: VFC<Props> = (props) => {
-  const { innerMainChildren, contentChildren } = props;
+  const { PrimaryContent, SecondaryContent } = props;
+  console.log("DefaultLayoutコンポーネント");
   return (
     <>
-      <Main>
-        <InnerMain>
-          <MainContainer>{innerMainChildren}</MainContainer>
-        </InnerMain>
+      <PrimaryArea>
+        <InnerPrimaryArea>
+          <FlexWrapper>
+            <ExtendWrapper>{PrimaryContent}</ExtendWrapper>
+          </FlexWrapper>
+        </InnerPrimaryArea>
         <Wave />
-      </Main>
-      <Content>{contentChildren}</Content>
+      </PrimaryArea>
+      <SecondaryArea>{SecondaryContent}</SecondaryArea>
     </>
   );
 };
+
+const ExtendWrapper = styled(SWrapper)`
+  height: 32vh !important;
+`;

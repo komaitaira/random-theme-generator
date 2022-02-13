@@ -2,7 +2,7 @@ import styled from "styled-components";
 import React, { VFC } from "react";
 
 export const Title: VFC = () => {
-  console.log("call Title.");
+  console.log("Titleコンポーネント");
   return (
     <>
       <STitle>Random Theme Generator</STitle>
