@@ -1,18 +1,19 @@
 import React, { VFC } from "react";
 import { Title } from "../atoms/title/Title";
-import { PeriodSelect } from "../molecules/selectboxes/PeriodSelect";
 import { Operation } from "../organisms/Operation";
 import styled from "styled-components";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
 import { WhiteButton } from "../molecules/buttons/WhiteButton";
 import { OrangeButton } from "../molecules/buttons/OrangeButton";
 import { useButton } from "../../hooks/useButton";
+import { PeriodDatePicker } from "../molecules/datepicker/PeriodDatePicker";
+
 export const PrimaryPeriod: VFC = () => {
   console.log("PrimaryPeriodコンポーネント");
   return (
     <>
       <Title />
-      <PeriodSelect />
+      <PeriodDatePicker />
     </>
   );
 };

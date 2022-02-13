@@ -11,10 +11,7 @@ export const ThemeSelect: VFC = () => {
     if (typeof text !== "string") {
       return;
     }
-    setSelect({
-      value: e.target.value,
-      text: text,
-    });
+    setSelect({ selected: text });
   };
 
   return (

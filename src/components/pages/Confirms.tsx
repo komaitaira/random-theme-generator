@@ -15,8 +15,8 @@ export const PrimaryConfirm: VFC = () => {
     <>
       <Title />
       <BlurWrapper>
-        <SP>表示テーマ数: {`${themeState.text}`}</SP>
-        <SP>撮影期限: {`${periodState.text}`}</SP>
+        <SP>表示テーマ数: {`${themeState.selected}`}</SP>
+        <SP>撮影期限: {`${periodState.selected}`}</SP>
       </BlurWrapper>
     </>
   ) : (

@@ -6,7 +6,7 @@ export const useCheckSelected = () => {
   const periodState = useRecoilValue(selectedPeriodState);
 
   const isSelectedAll = () => {
-    if (themeState.value !== "" && periodState.value !== "") {
+    if (themeState.selected !== "" && periodState.selected !== "") {
       return true;
     } else {
       return false;
