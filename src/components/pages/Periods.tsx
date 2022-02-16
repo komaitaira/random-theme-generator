@@ -20,7 +20,7 @@ export const PrimaryPeriod: VFC = () => {
 
 export const SecondaryPeriod: VFC = () => {
   console.log("SecondaryPeriodコンポーネント");
-  const { onClickBack, onClickNext } = useButton();
+  const { onClickBack } = useButton();
   return (
     <>
       <ExtendWrapper>
@@ -31,9 +31,7 @@ export const SecondaryPeriod: VFC = () => {
       </ExtendWrapper>
       <Operation>
         <WhiteButton onClickButton={() => onClickBack("/")}>BACK</WhiteButton>
-        <OrangeButton onClickButton={() => onClickNext("/confirm")}>
-          NEXT
-        </OrangeButton>
+        <OrangeButton>NEXT</OrangeButton>
       </Operation>
     </>
   );

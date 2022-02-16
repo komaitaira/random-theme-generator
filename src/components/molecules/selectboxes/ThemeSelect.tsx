@@ -2,6 +2,7 @@ import React, { VFC } from "react";
 import { BaseSelect } from "../../atoms/selectbox/BaseSelect";
 import { useSetRecoilState } from "recoil";
 import { selectedThemeState } from "../../../store/selectState";
+import { useFormContext } from "react-hook-form";
 
 export const ThemeSelect: VFC = () => {
   const setSelect = useSetRecoilState(selectedThemeState);
@@ -14,8 +15,12 @@ export const ThemeSelect: VFC = () => {
     setSelect({ selected: text });
   };
 
+  const { register } = useFormContext();
+
   return (
-    <BaseSelect onChangeSelect={onChangeTheme}>
+    <BaseSelect
+      {...register("theme", { required: true, onChange: onChangeTheme })}
+    >
       <option value="">テーマ数を選択してください</option>
       <option value="1">1</option>
       <option value="2">2</option>

@@ -4,12 +4,11 @@ import { BaseButton } from "../../atoms/button/BaseButton";
 
 type Props = {
   children: ReactNode;
-  onClickButton: MouseEventHandler<HTMLButtonElement>;
 };
 
 export const OrangeButton: VFC<Props> = (props) => {
-  const { children, onClickButton } = props;
-  return <SButton onClick={onClickButton}>{children}</SButton>;
+  const { children } = props;
+  return <SButton type="submit">{children}</SButton>;
 };
 
 const SButton = styled(BaseButton)`

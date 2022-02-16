@@ -5,26 +5,43 @@ import { Page404 } from "../components/pages/Page404";
 import { PrimaryPeriod, SecondaryPeriod } from "../components/pages/Periods";
 import { PrimaryTheme, SecondaryTheme } from "../components/pages/Themes";
 import { DefaultLayout } from "../components/templates/DefaultLayout";
+import { FormLayout } from "../components/templates/FormLayout";
 export const Router = () => {
   return (
     <BrowserRouter>
-      <DefaultLayout
-        PrimaryContent={
-          <Routes>
-            <Route path="/" element={<PrimaryTheme />} />
-            <Route path="period" element={<PrimaryPeriod />} />
-            <Route path="confirm" element={<PrimaryConfirm />} />
-            <Route path="*" element={<Page404 />} />
-          </Routes>
-        }
-        SecondaryContent={
-          <Routes>
-            <Route path="/" element={<SecondaryTheme />} />
-            <Route path="period" element={<SecondaryPeriod />} />
-            <Route path="confirm" element={<SecondaryConfirm />} />
-          </Routes>
-        }
-      ></DefaultLayout>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <FormLayout
+              PrimaryContent={<PrimaryTheme />}
+              SecondaryContent={<SecondaryTheme />}
+            ></FormLayout>
+          }
+        />
+        <Route
+          path="period"
+          element={
+            <FormLayout
+              PrimaryContent={<PrimaryPeriod />}
+              SecondaryContent={<SecondaryPeriod />}
+            ></FormLayout>
+          }
+        />
+        <Route
+          path="confirm"
+          element={
+            <FormLayout
+              PrimaryContent={<PrimaryConfirm />}
+              SecondaryContent={<SecondaryConfirm />}
+            ></FormLayout>
+          }
+        />
+        <Route
+          path="*"
+          element={<DefaultLayout PrimaryContent={<Page404 />}></DefaultLayout>}
+        />
+      </Routes>
     </BrowserRouter>
   );
 };

@@ -5,6 +5,7 @@ import ja from "date-fns/locale/ja";
 import { selectedPeriodState } from "../../../store/selectState";
 import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
+import { useFormContext } from "react-hook-form";
 
 export const PeriodDatePicker = () => {
   const initialDate = new Date();
@@ -13,6 +14,7 @@ export const PeriodDatePicker = () => {
   registerLocale("ja", ja);
 
   const handleChange = (date: Date) => {
+    console.log(date); // 選択した日時
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
@@ -23,8 +25,11 @@ export const PeriodDatePicker = () => {
     setSelect({ selected: selectedDay });
   };
 
+  const { register } = useFormContext();
+
   return (
     <DatePicker
+      {...register("period", { required: true })}
       dateFormat="yyyy/MM/dd"
       locale="ja"
       selected={startDate}
