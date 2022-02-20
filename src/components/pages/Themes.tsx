@@ -20,7 +20,7 @@ export const PrimaryTheme: VFC = () => {
 
 export const SecondaryTheme: VFC = () => {
   console.log("SecondaryThemeコンポーネント");
-  const { onClickBack, onClickNext } = useButton();
+  const { onClickBack } = useButton();
   return (
     <>
       <ExtendWrapper>
@@ -31,9 +31,7 @@ export const SecondaryTheme: VFC = () => {
       </ExtendWrapper>
       <Operation>
         <WhiteButton onClickButton={() => onClickBack("/")}>BACK</WhiteButton>
-        <OrangeButton onClickButton={() => onClickNext("/period")}>
-          NEXT
-        </OrangeButton>
+        <OrangeButton>NEXT</OrangeButton>
       </Operation>
     </>
   );
