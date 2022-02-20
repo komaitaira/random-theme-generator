@@ -1,18 +1,6 @@
 import styled from "styled-components";
-import React, { ReactEventHandler, ReactNode, VFC } from "react";
-
-type Props = {
-  children: ReactNode;
-  onChangeSelect: ReactEventHandler;
-};
-
-export const BaseSelect: VFC<Props> = (props) => {
-  const { children, onChangeSelect } = props;
-  console.log("BaseSelectコンポーネント");
-  return <SSelect onChange={onChangeSelect}>{children}</SSelect>;
-};
-
-export const SSelect = styled.select`
+console.log("BaseSelectコンポーネント");
+export const BaseSelect = styled.select`
   max-width: 340px;
   width: 100%;
   height: 45px;

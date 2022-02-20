@@ -2,34 +2,48 @@ import React, { useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ja from "date-fns/locale/ja";
-import { selectedPeriodState } from "../../../store/selectState";
+import { getDateObj, selectedPeriodState } from "../../../store/selectState";
 import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
+import { Controller, useFormContext } from "react-hook-form";
 
 export const PeriodDatePicker = () => {
   const initialDate = new Date();
   const [startDate, setStartDate] = useState(initialDate);
   const setSelect = useSetRecoilState(selectedPeriodState);
   registerLocale("ja", ja);
+  const { register, control } = useFormContext();
 
   const handleChange = (date: Date) => {
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const dayOfWeek = date.getDay();
-    const dayOfWeekArray = ["日", "月", "火", "水", "木", "金", "土"];
-    const selectedDay = `${year}年${month}月${day}日(${dayOfWeekArray[dayOfWeek]})`;
-    setStartDate(date);
-    setSelect({ selected: selectedDay });
+    console.log(date); // 選択した日時
+    if (date) {
+      const d = getDateObj(date);
+      const selectedDay = `${d.year}年${d.month}月${d.day}日(${d.dayOfWeek})`;
+      setStartDate(new Date(`${d.year}-${d.month}-${d.day} 23:59:59`));
+      setSelect({ selected: selectedDay });
+    }
   };
 
   return (
-    <DatePicker
-      dateFormat="yyyy/MM/dd"
-      locale="ja"
-      selected={startDate}
-      onChange={handleChange}
-      customInput={<SInput />}
+    <Controller
+      control={control}
+      name="period"
+      render={() => (
+        <DatePicker
+          {...register("period", {
+            validate: () => {
+              const now = new Date();
+              const d = getDateObj(now);
+              return startDate >= new Date(`${d.year}-${d.month}-${d.day}`);
+            },
+          })}
+          dateFormat="yyyy/MM/dd"
+          locale="ja"
+          selected={startDate}
+          onChange={handleChange}
+          customInput={<SInput />}
+        />
+      )}
     />
   );
 };
