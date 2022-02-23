@@ -16,6 +16,6 @@ const SButton = styled(BaseButton)`
   background-color: rgb(29, 155, 240);
   color: #fff;
   border: 1px solid rgb(29, 155, 240);
-  margin-right: 1vw;
-  margin-left: 2vw;
+  margin-left: 1vw;
+  margin-right: 2vw;
 `;
