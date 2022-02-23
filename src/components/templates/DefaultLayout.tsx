@@ -3,7 +3,6 @@ import { SecondaryArea } from "../atoms/layout/SecondaryArea";
 import { InnerPrimaryArea } from "../atoms/layout/InnerPrimaryArea";
 import { PrimaryArea } from "../atoms/layout/PrimaryArea";
 import { Wave } from "../atoms/svg/Wave";
-import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
 import styled from "styled-components";
 
@@ -19,9 +18,7 @@ export const DefaultLayout: VFC<Props> = (props) => {
     <>
       <PrimaryArea>
         <InnerPrimaryArea>
-          <FlexWrapper>
-            <ExtendWrapper>{PrimaryContent}</ExtendWrapper>
-          </FlexWrapper>
+          <ExtendWrapper>{PrimaryContent}</ExtendWrapper>
         </InnerPrimaryArea>
         <Wave />
       </PrimaryArea>
@@ -31,5 +28,9 @@ export const DefaultLayout: VFC<Props> = (props) => {
 };
 
 const ExtendWrapper = styled(SWrapper)`
-  height: 32vh !important;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;

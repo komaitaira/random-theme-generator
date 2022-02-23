@@ -5,8 +5,6 @@ const { persistAtom } = recoilPersist();
 
 export const generatedState = atom({
   key: "generatedState",
-  default: {
-    generated: [],
-  },
+  default: [],
   effects_UNSTABLE: [persistAtom],
 });

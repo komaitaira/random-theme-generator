@@ -41,10 +41,10 @@ export const Router = () => {
         <Route
           path="result"
           element={
-            <FormLayout
+            <DefaultLayout
               PrimaryContent={<PrimaryResult />}
               SecondaryContent={<SecondaryResult />}
-            ></FormLayout>
+            ></DefaultLayout>
           }
         />
         <Route
