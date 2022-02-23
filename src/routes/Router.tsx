@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { PrimaryConfirm, SecondaryConfirm } from "../components/pages/Confirms";
 import { Page404 } from "../components/pages/Page404";
 import { PrimaryPeriod, SecondaryPeriod } from "../components/pages/Periods";
+import { PrimaryResult, SecondaryResult } from "../components/pages/Result";
 import { PrimaryTheme, SecondaryTheme } from "../components/pages/Themes";
 import { DefaultLayout } from "../components/templates/DefaultLayout";
 import { FormLayout } from "../components/templates/FormLayout";
@@ -34,6 +35,15 @@ export const Router = () => {
             <FormLayout
               PrimaryContent={<PrimaryConfirm />}
               SecondaryContent={<SecondaryConfirm />}
+            ></FormLayout>
+          }
+        />
+        <Route
+          path="result"
+          element={
+            <FormLayout
+              PrimaryContent={<PrimaryResult />}
+              SecondaryContent={<SecondaryResult />}
             ></FormLayout>
           }
         />
