@@ -15,7 +15,11 @@ app.add_middleware(
 conn = sqlite3.connect("./../db/wnjpn.db")
 @app.get("/")
 async def root():
-    cur = conn.execute("select * from word where lang = 'jpn' ORDER BY RANDOM() LIMIT 10;")
+    return {"message": "false"}
+
+@app.get("/generate")
+async def generate(limit: int = 10):
+    cur = conn.execute(f"select * from word where lang = 'jpn' ORDER BY RANDOM() LIMIT {limit};")
     wordlist = [ record[2] for record in cur.fetchall()]
-    return {"message": wordlist}
+    return {"themelist": wordlist}
     
