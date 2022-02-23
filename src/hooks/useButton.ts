@@ -21,7 +21,8 @@ export const useButton = () => {
   };
 
   const onClickGenerate = (path: string) => {
-    axios.get("http://localhost:8000").then((res) => {
+    console.log(path);
+    axios.get(`http://localhost:8000${path}`).then((res) => {
       console.log(res.data);
     });
   };
