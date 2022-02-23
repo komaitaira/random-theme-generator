@@ -3,7 +3,6 @@ import { SecondaryArea } from "../atoms/layout/SecondaryArea";
 import { InnerPrimaryArea } from "../atoms/layout/InnerPrimaryArea";
 import { PrimaryArea } from "../atoms/layout/PrimaryArea";
 import { Wave } from "../atoms/svg/Wave";
-import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
 import styled from "styled-components";
 

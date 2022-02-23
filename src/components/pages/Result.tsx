@@ -11,30 +11,37 @@ import { useRecoilValue } from "recoil";
 import { generatedState } from "../../store/generatedState";
 
 export const PrimaryResult: VFC = () => {
-  const { themeState, periodState, isSelectedAll } = useCheckSelected();
+  const { periodState, isSelectedAll } = useCheckSelected();
   const themeList = useRecoilValue(generatedState);
-  console.log(themeList);
   console.log("PrimaryResultコンポーネント");
-  return (
+  return isSelectedAll() && themeList.length > 0 ? (
     <MainWrapper>
       <Title />
-      <BlurWrapper>
+      <ResultBox>
         {themeList.map((theme: string, index: number) => (
           <SP key={index}>
             No.{index + 1} {theme}
           </SP>
         ))}
         <SProgress>撮影期限: {`${periodState.selected}`}</SProgress>
-      </BlurWrapper>
+      </ResultBox>
     </MainWrapper>
+  ) : (
+    <>
+      <ResultBox>
+        <SP>必須選択項目が選ばれていません。</SP>
+        <SP>もう一度ご確認ください。</SP>
+      </ResultBox>
+    </>
   );
 };
 
 export const SecondaryResult: VFC = () => {
   console.log("SecondaryResultコンポーネント");
-  const { themeState, periodState, isSelectedAll } = useCheckSelected();
-  const { onClickBack, onClickGenerate } = useButton();
-  return isSelectedAll() ? (
+  const { isSelectedAll } = useCheckSelected();
+  const themeList = useRecoilValue(generatedState);
+  const { onClickBack } = useButton();
+  return isSelectedAll() && themeList.length > 0 ? (
     <>
       <Operation>
         <WhiteButton onClickButton={() => onClickBack("/")}>HOME</WhiteButton>
@@ -56,11 +63,12 @@ const MainWrapper = styled(SWrapper)`
   max-width: 880px;
 `;
 
-const BlurWrapper = styled(SWrapper)`
+const ResultBox = styled(SWrapper)`
   background-color: #fff;
   border-radius: 16px;
   border: 5px solid #ddd;
   width: 85%;
+  max-width: 880px;
   max-height: 56vh;
   overflow-y: scroll;
   margin: auto;
