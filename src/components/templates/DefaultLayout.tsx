@@ -19,9 +19,7 @@ export const DefaultLayout: VFC<Props> = (props) => {
     <>
       <PrimaryArea>
         <InnerPrimaryArea>
-          <FlexWrapper>
-            <ExtendWrapper>{PrimaryContent}</ExtendWrapper>
-          </FlexWrapper>
+          <ExtendWrapper>{PrimaryContent}</ExtendWrapper>
         </InnerPrimaryArea>
         <Wave />
       </PrimaryArea>
@@ -31,5 +29,9 @@ export const DefaultLayout: VFC<Props> = (props) => {
 };
 
 const ExtendWrapper = styled(SWrapper)`
-  height: 32vh !important;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
