@@ -32,8 +32,8 @@ export const PrimaryConfirm: VFC = () => {
 
 export const SecondaryConfirm: VFC = () => {
   console.log("SecondaryConfirmコンポーネント");
+  const { themeState, isSelectedAll } = useCheckSelected();
   const { onClickBack, onClickGenerate } = useButton();
-  const { isSelectedAll } = useCheckSelected();
   return isSelectedAll() ? (
     <>
       <ExtendWrapper>
@@ -46,7 +46,11 @@ export const SecondaryConfirm: VFC = () => {
         <WhiteButton onClickButton={() => onClickBack("/period")}>
           BACK
         </WhiteButton>
-        <NavyButton onClickButton={() => onClickGenerate("/generate")}>
+        <NavyButton
+          onClickButton={() =>
+            onClickGenerate(`/generate?limit=${themeState.selected}`)
+          }
+        >
           GENERATE
         </NavyButton>
       </Operation>
