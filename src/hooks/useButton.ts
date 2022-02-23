@@ -1,7 +1,11 @@
 // ボタン操作カスタムフック
 
+import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
+axios.defaults.headers.post["Content-Type"] = "application/json;charset=utf-8";
+axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 
 export const useButton = () => {
   const navigate = useNavigate();
@@ -17,7 +21,9 @@ export const useButton = () => {
   };
 
   const onClickGenerate = (path: string) => {
-    alert(path);
+    axios.get("http://localhost:8000").then((res) => {
+      console.log(res.data);
+    });
   };
 
   return { onClickBack, onClickNext, onClickGenerate };
