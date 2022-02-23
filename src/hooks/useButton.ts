@@ -34,9 +34,9 @@ export const useButton = () => {
       setThemeList(res.data.themelist);
       console.log("onClickGenerate called.");
       navigate("/result");
-      setLoading(false);
     } catch (error) {
       console.error(error);
+    } finally {
       setLoading(false);
     }
   };
