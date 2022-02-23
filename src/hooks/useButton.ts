@@ -3,14 +3,16 @@
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { generatedState } from "../store/generatedState";
+import { loadingState } from "../store/loadingState";
 
 axios.defaults.headers.post["Content-Type"] = "application/json;charset=utf-8";
 axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 
 export const useButton = () => {
   const [themeList, setThemeList] = useRecoilState(generatedState);
+  const setLoading = useSetRecoilState(loadingState);
   const navigate = useNavigate();
 
   console.log(themeList);
@@ -26,13 +28,16 @@ export const useButton = () => {
   };
 
   const onClickGenerate = async (path: string) => {
+    setLoading(true);
     try {
       const res = await axios.get(`http://localhost:8000${path}`);
       setThemeList(res.data.themelist);
       console.log("onClickGenerate called.");
       navigate("/result");
+      setLoading(false);
     } catch (error) {
       console.error(error);
+      setLoading(false);
     }
   };
 

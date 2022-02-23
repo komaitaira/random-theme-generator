@@ -7,61 +7,85 @@ import { NavyButton } from "../molecules/buttons/NavyButton";
 import { useButton } from "../../hooks/useButton";
 import { WhiteButton } from "../molecules/buttons/WhiteButton";
 import { useCheckSelected } from "../../hooks/useCheckSelected";
+import { BallTriangle } from "react-loader-spinner";
+import { useRecoilState } from "recoil";
+import { loadingState } from "../../store/loadingState";
+import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 
 export const PrimaryConfirm: VFC = () => {
   const { themeState, periodState, isSelectedAll } = useCheckSelected();
+  const [loading] = useRecoilState(loadingState);
   console.log("PrimaryConfirmコンポーネント");
-  return isSelectedAll() ? (
-    <>
-      <Title />
-      <BlurWrapper>
-        <SP>表示テーマ数: {`${themeState.selected}`}</SP>
-        <SP>撮影期限: {`${periodState.selected}`}</SP>
-      </BlurWrapper>
-    </>
-  ) : (
-    <>
-      <Title />
-      <BlurWrapper>
-        <SP>必須選択項目が選ばれていません。</SP>
-        <SP>もう一度ご確認ください。</SP>
-      </BlurWrapper>
-    </>
-  );
+  if (isSelectedAll()) {
+    return loading ? (
+      <>
+        <FlexWrapper>
+          <BallTriangle color="#00BFFF" height={90} width={90} />
+        </FlexWrapper>
+        <SP>Now Generating...</SP>
+      </>
+    ) : (
+      <>
+        <Title />
+        <BlurWrapper>
+          <SP>表示テーマ数: {`${themeState.selected}`}</SP>
+          <SP>撮影期限: {`${periodState.selected}`}</SP>
+        </BlurWrapper>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Title />
+        <BlurWrapper>
+          <SP>必須選択項目が選ばれていません。</SP>
+          <SP>もう一度ご確認ください。</SP>
+        </BlurWrapper>
+      </>
+    );
+  }
 };
 
 export const SecondaryConfirm: VFC = () => {
   console.log("SecondaryConfirmコンポーネント");
   const { themeState, isSelectedAll } = useCheckSelected();
+  const [loading] = useRecoilState(loadingState);
   const { onClickBack, onClickGenerate } = useButton();
-  return isSelectedAll() ? (
-    <>
-      <ExtendWrapper>
-        <SDiv>
-          <SDescription>テーマを生成します</SDescription>
-          <SProgress>3/3</SProgress>
-        </SDiv>
-      </ExtendWrapper>
+
+  if (isSelectedAll()) {
+    return loading ? (
+      <></>
+    ) : (
+      <>
+        <ExtendWrapper>
+          <SDiv>
+            <SDescription>テーマを生成します</SDescription>
+            <SProgress>3/3</SProgress>
+          </SDiv>
+        </ExtendWrapper>
+        <Operation>
+          <WhiteButton onClickButton={() => onClickBack("/period")}>
+            BACK
+          </WhiteButton>
+          <NavyButton
+            onClickButton={() => {
+              onClickGenerate(`/generate?limit=${themeState.selected}`);
+            }}
+          >
+            GENERATE
+          </NavyButton>
+        </Operation>
+      </>
+    );
+  } else {
+    return (
       <Operation>
         <WhiteButton onClickButton={() => onClickBack("/period")}>
           BACK
         </WhiteButton>
-        <NavyButton
-          onClickButton={() =>
-            onClickGenerate(`/generate?limit=${themeState.selected}`)
-          }
-        >
-          GENERATE
-        </NavyButton>
       </Operation>
-    </>
-  ) : (
-    <Operation>
-      <WhiteButton onClickButton={() => onClickBack("/period")}>
-        BACK
-      </WhiteButton>
-    </Operation>
-  );
+    );
+  }
 };
 
 const BlurWrapper = styled(SWrapper)`

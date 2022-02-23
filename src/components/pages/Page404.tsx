@@ -5,14 +5,14 @@ import styled from "styled-components";
 export const Page404: VFC = () => {
   console.log("Page404コンポーネント");
   return (
-    <>
+    <div>
       <SMessage>
         404 Not Found.
         <br />
         ページが見つかりませんでした。
       </SMessage>
       <StyledLink to="/">Return to The Home?</StyledLink>
-    </>
+    </div>
   );
 };
 
