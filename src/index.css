@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Dongle:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Dongle:wght@300&display=swap");
 
 body {
   margin: 0;
   letter-spacing: 2px;
-  font-family: 'Comfortaa', cursive;
+  font-family: "Comfortaa", cursive;
 }
 
 h1 {
@@ -34,4 +34,35 @@ h1 {
   h2 {
     font-size: 1.2rem;
   }
+}
+
+/* ■■■■■ react-datapicker CSS上書き ■■■■■ */
+
+/* 中央寄せにならなかったので下記でリセット */
+.react-datepicker-popper {
+  position: unset !important;
+  inset: unset !important;
+  transform: unset !important;
+}
+
+/* 下部が下に隠れてしまったので下記でz-indexをあげる */
+.react-datepicker {
+  z-index: 100 !important;
+}
+
+.react-datepicker__header {
+  background-color: #092856;
+}
+
+.react-datepicker__current-month, .react-datepicker__day-names .react-datepicker__day-name {
+  color: #fff !important;
+}
+
+.react-datepicker__day--selected {
+  background-color: #f6aa64;
+  border-radius: 50%;
+}
+
+.react-datepicker__triangle {
+  transform: translate3d(127px, 0px, 0px) !important;
 }

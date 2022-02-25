@@ -9,6 +9,7 @@ import { WhiteButton } from "../molecules/buttons/WhiteButton";
 import { useCheckSelected } from "../../hooks/useCheckSelected";
 import { useRecoilValue } from "recoil";
 import { generatedState } from "../../store/generatedState";
+import { LightBlueButton } from "../molecules/buttons/LightBlueButton";
 
 export const PrimaryResult: VFC = () => {
   const { periodState, isSelectedAll } = useCheckSelected();
@@ -45,7 +46,9 @@ export const SecondaryResult: VFC = () => {
     <>
       <Operation>
         <WhiteButton onClickButton={() => onClickBack("/")}>HOME</WhiteButton>
-        <NavyButton onClickButton={() => console.log("aaa")}>TWEET</NavyButton>
+        <LightBlueButton onClickButton={() => console.log("aaa")}>
+          TWEET
+        </LightBlueButton>
       </Operation>
     </>
   ) : (
