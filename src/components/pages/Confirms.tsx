@@ -18,30 +18,30 @@ export const PrimaryConfirm: VFC = () => {
   console.log("PrimaryConfirmコンポーネント");
   if (isSelectedAll()) {
     return loading ? (
-      <>
+      <div>
         <FlexWrapper>
           <BallTriangle color="#00BFFF" height={90} width={90} />
         </FlexWrapper>
         <SP>Now Generating...</SP>
-      </>
+      </div>
     ) : (
-      <>
+      <div>
         <Title />
         <BlurWrapper>
           <SP>表示テーマ数: {`${themeState.selected}`}</SP>
           <SP>撮影期限: {`${periodState.selected}`}</SP>
         </BlurWrapper>
-      </>
+      </div>
     );
   } else {
     return (
-      <>
+      <div>
         <Title />
         <BlurWrapper>
           <SP>必須選択項目が選ばれていません。</SP>
           <SP>もう一度ご確認ください。</SP>
         </BlurWrapper>
-      </>
+      </div>
     );
   }
 };
@@ -58,10 +58,12 @@ export const SecondaryConfirm: VFC = () => {
     ) : (
       <>
         <ExtendWrapper>
-          <SDiv>
-            <SDescription>テーマを生成します</SDescription>
-            <SProgress>3/3</SProgress>
-          </SDiv>
+          <FlexWrapper>
+            <div>
+              <SDescription>テーマを生成します</SDescription>
+              <SProgress>3/3</SProgress>
+            </div>
+          </FlexWrapper>
         </ExtendWrapper>
         <Operation>
           <WhiteButton onClickButton={() => onClickBack("/period")}>
@@ -96,19 +98,10 @@ const SP = styled.p`
   color: #fff;
 `;
 
-const ExtendWrapper = styled(SWrapper)`
+const ExtendWrapper = styled.div`
   text-align: center;
-  height: 23vh;
+  height: 70%;
   position: relative;
-`;
-
-const SDiv = styled.div`
-  position: absolute;
-  padding: 2vw;
-  top: 50%;
-  right: 0;
-  left: 0;
-  transform: translateY(-50%);
 `;
 
 const SDescription = styled.h3`

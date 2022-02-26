@@ -26,6 +26,6 @@ export const Wave: VFC = () => {
 
 const SSvg = styled.svg`
   width: 100%;
-  height: 5vh;
+  height: 5%;
   margin-bottom: -7px; /*Fix for safari gap*/
 `;

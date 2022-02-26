@@ -13,5 +13,5 @@ export const PrimaryArea: VFC<Props> = (props) => {
 
 const SPrimaryArea = styled.div`
   background-color: #092856;
-  height: 65vh;
+  height: 60%;
 `;

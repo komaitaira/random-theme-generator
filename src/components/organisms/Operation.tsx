@@ -13,7 +13,7 @@ export const Operation: VFC<Props> = (props) => {
 };
 
 const ExtendFlexWrapper = styled(SFlexWrapper)`
-  height: 10vh;
+  height: 30%;
   background-color: #fff;
   bottom: 0;
   position: absolute;

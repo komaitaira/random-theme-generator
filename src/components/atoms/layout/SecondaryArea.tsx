@@ -13,6 +13,6 @@ export const SecondaryArea: VFC<Props> = (props) => {
 
 const SSecondaryArea = styled.div`
   background-color: #ffe4c5;
-  height: 35vh;
+  height: 40%;
   position: relative;
 `;
