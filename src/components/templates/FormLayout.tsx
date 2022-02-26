@@ -40,9 +40,38 @@ export const FormLayout: VFC<Props> = (props) => {
       onClickNext("/confirm");
     }
   };
+
+  const moveHeight = document.documentElement.clientHeight + "px";
+
+  const setFillHeight = () => {
+    const vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+  };
+
+  // ここからリサイズの対応
+  // const vw = window.innerWidth;
+  window.addEventListener("resize", () => {
+    // if (vw === window.innerWidth) {
+    //   console.log("変更なし");
+    //   // 画面の横幅にサイズ変動がないので処理を終える
+    //   return;
+    // }
+
+    // 画面の横幅のサイズ変動があった時のみ高さを再計算する
+    document.forms[0].style.height =
+      document.documentElement.clientHeight + "px";
+    setFillHeight();
+  });
+
+  // 実行
+  setFillHeight();
+
   return (
     <FormProvider {...methods}>
-      <form onSubmit={methods.handleSubmit(onSubmit)}>
+      <form
+        onSubmit={methods.handleSubmit(onSubmit)}
+        style={{ height: moveHeight }}
+      >
         <PrimaryArea>
           <InnerPrimaryArea>
             <FlexWrapper>
