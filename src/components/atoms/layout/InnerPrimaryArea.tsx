@@ -12,5 +12,5 @@ export const InnerPrimaryArea: VFC<Props> = (props) => {
 };
 
 const SInnerPrimaryArea = styled.div`
-  height: 60vh;
+  height: 95%;
 `;

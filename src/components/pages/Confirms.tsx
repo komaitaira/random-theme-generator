@@ -1,6 +1,5 @@
 import React, { VFC } from "react";
 import { Title } from "../atoms/title/Title";
-import { SWrapper } from "../atoms/wrapper/Wrapper";
 import styled from "styled-components";
 import { Operation } from "../organisms/Operation";
 import { NavyButton } from "../molecules/buttons/NavyButton";
@@ -11,6 +10,7 @@ import { BallTriangle } from "react-loader-spinner";
 import { useRecoilState } from "recoil";
 import { loadingState } from "../../store/loadingState";
 import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
+import { InfoBox } from "../molecules/box/InfoBox";
 
 export const PrimaryConfirm: VFC = () => {
   const { themeState, periodState, isSelectedAll } = useCheckSelected();
@@ -18,30 +18,30 @@ export const PrimaryConfirm: VFC = () => {
   console.log("PrimaryConfirmコンポーネント");
   if (isSelectedAll()) {
     return loading ? (
-      <>
+      <div>
         <FlexWrapper>
           <BallTriangle color="#00BFFF" height={90} width={90} />
         </FlexWrapper>
         <SP>Now Generating...</SP>
-      </>
+      </div>
     ) : (
-      <>
+      <div>
         <Title />
-        <BlurWrapper>
+        <InfoBox>
           <SP>表示テーマ数: {`${themeState.selected}`}</SP>
           <SP>撮影期限: {`${periodState.selected}`}</SP>
-        </BlurWrapper>
-      </>
+        </InfoBox>
+      </div>
     );
   } else {
     return (
-      <>
+      <div>
         <Title />
-        <BlurWrapper>
+        <InfoBox>
           <SP>必須選択項目が選ばれていません。</SP>
           <SP>もう一度ご確認ください。</SP>
-        </BlurWrapper>
-      </>
+        </InfoBox>
+      </div>
     );
   }
 };
@@ -58,10 +58,12 @@ export const SecondaryConfirm: VFC = () => {
     ) : (
       <>
         <ExtendWrapper>
-          <SDiv>
-            <SDescription>テーマを生成します</SDescription>
-            <SProgress>3/3</SProgress>
-          </SDiv>
+          <FlexWrapper>
+            <div>
+              <SDescription>テーマを生成します</SDescription>
+              <SProgress>3/3</SProgress>
+            </div>
+          </FlexWrapper>
         </ExtendWrapper>
         <Operation>
           <WhiteButton onClickButton={() => onClickBack("/period")}>
@@ -88,27 +90,15 @@ export const SecondaryConfirm: VFC = () => {
   }
 };
 
-const BlurWrapper = styled(SWrapper)`
-  background-color: rgba(255, 255, 255, 0.2);
-`;
-
-const SP = styled.p`
-  color: #fff;
-`;
-
-const ExtendWrapper = styled(SWrapper)`
+const ExtendWrapper = styled.div`
   text-align: center;
-  height: 23vh;
+  height: 70%;
   position: relative;
 `;
 
-const SDiv = styled.div`
-  position: absolute;
-  padding: 2vw;
-  top: 50%;
-  right: 0;
-  left: 0;
-  transform: translateY(-50%);
+const SP = styled.p`
+  color: #444;
+  font-weight: bold;
 `;
 
 const SDescription = styled.h3`
