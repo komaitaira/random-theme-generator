@@ -10,6 +10,8 @@ export const InfoBox = styled(SWrapper)`
   max-height: 56vh;
   overflow-y: scroll;
   margin: auto;
+  position: relative;
+  z-index: 100;
   @media screen and (max-height: 800px) {
     max-height: 45vh;
   }

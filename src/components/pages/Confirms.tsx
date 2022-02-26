@@ -18,12 +18,14 @@ export const PrimaryConfirm: VFC = () => {
   console.log("PrimaryConfirmコンポーネント");
   if (isSelectedAll()) {
     return loading ? (
-      <div>
-        <FlexWrapper>
-          <BallTriangle color="#00BFFF" height={90} width={90} />
-        </FlexWrapper>
-        <SP>Now Generating...</SP>
-      </div>
+      <FlexWrapper>
+        <div>
+          <FlexWrapper>
+            <BallTriangle color="#00BFFF" height={90} width={90} />
+          </FlexWrapper>
+          <SP>Now Generating...</SP>
+        </div>
+      </FlexWrapper>
     ) : (
       <div>
         <Title />
