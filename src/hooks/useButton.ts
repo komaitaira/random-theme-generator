@@ -1,7 +1,7 @@
 // ボタン操作カスタムフック
 
 import axios from "axios";
-import React from "react";
+import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { generatedState } from "../store/generatedState";
@@ -17,17 +17,17 @@ export const useButton = () => {
 
   console.log(themeList);
 
-  const onClickBack = (path: string) => {
+  const onClickBack = useCallback((path: string) => {
     console.log("onClickBack called.");
     navigate(path);
-  };
+  }, []);
 
-  const onClickNext = (path: string) => {
+  const onClickNext = useCallback((path: string) => {
     console.log("onClickNext called.");
     navigate(path);
-  };
+  }, []);
 
-  const onClickGenerate = async (path: string) => {
+  const onClickGenerate = useCallback(async (path: string) => {
     setLoading(true);
     try {
       const res = await axios.get(`http://localhost:8000${path}`);
@@ -39,7 +39,7 @@ export const useButton = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   return { onClickBack, onClickNext, onClickGenerate };
 };

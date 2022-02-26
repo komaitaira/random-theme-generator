@@ -1,4 +1,4 @@
-import React, { ReactNode, VFC } from "react";
+import React, { memo, ReactNode, VFC } from "react";
 import { SecondaryArea } from "../atoms/layout/SecondaryArea";
 import { InnerPrimaryArea } from "../atoms/layout/InnerPrimaryArea";
 import { PrimaryArea } from "../atoms/layout/PrimaryArea";
@@ -11,8 +11,8 @@ type Props = {
   PrimaryContent?: ReactNode;
   SecondaryContent?: ReactNode;
 };
-
-export const DefaultLayout: VFC<Props> = (props) => {
+// eslint-disable-next-line react/display-name
+export const DefaultLayout: VFC<Props> = memo((props) => {
   const { PrimaryContent, SecondaryContent } = props;
   console.log("DefaultLayoutコンポーネント");
 
@@ -45,12 +45,4 @@ export const DefaultLayout: VFC<Props> = (props) => {
       <SecondaryArea>{SecondaryContent}</SecondaryArea>
     </div>
   );
-};
-
-const ExtendWrapper = styled(SWrapper)`
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-`;
+});

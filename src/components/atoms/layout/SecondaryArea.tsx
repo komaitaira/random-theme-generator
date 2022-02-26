@@ -1,15 +1,15 @@
-import React, { ReactNode, VFC } from "react";
+import React, { memo, ReactNode, VFC } from "react";
 import styled from "styled-components";
 
 type Props = {
   children?: ReactNode;
 };
-
-export const SecondaryArea: VFC<Props> = (props) => {
+// eslint-disable-next-line react/display-name
+export const SecondaryArea: VFC<Props> = memo((props) => {
   const { children } = props;
-  console.log("SecondaryAreaコンポーネント");
+  console.log("\u001b[33m" + "SecondaryAreaコンポーネント");
   return <SSecondaryArea>{children}</SSecondaryArea>;
-};
+});
 
 const SSecondaryArea = styled.div`
   background-color: #ffe4c5;

@@ -9,7 +9,7 @@ import { useButton } from "../../hooks/useButton";
 import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 
 export const PrimaryTheme: VFC = () => {
-  console.log("PrimaryThemeコンポーネント");
+  console.log("\u001b[35m" + "PrimaryThemeコンポーネント");
   return (
     <div>
       <Title />
@@ -19,7 +19,7 @@ export const PrimaryTheme: VFC = () => {
 };
 
 export const SecondaryTheme: VFC = () => {
-  console.log("SecondaryThemeコンポーネント");
+  console.log("\u001b[34m" + "SecondaryThemeコンポーネント");
   const { onClickBack } = useButton();
   return (
     <>

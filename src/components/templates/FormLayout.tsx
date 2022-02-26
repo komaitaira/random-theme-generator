@@ -1,4 +1,4 @@
-import React, { ReactNode, VFC } from "react";
+import React, { memo, ReactNode, VFC } from "react";
 import { SecondaryArea } from "../atoms/layout/SecondaryArea";
 import { InnerPrimaryArea } from "../atoms/layout/InnerPrimaryArea";
 import { PrimaryArea } from "../atoms/layout/PrimaryArea";
@@ -18,11 +18,11 @@ type Select = {
   theme: string;
   period: string;
 };
-
-export const FormLayout: VFC<Props> = (props) => {
+// eslint-disable-next-line react/display-name
+export const FormLayout: VFC<Props> = memo((props) => {
   const { onClickNext } = useButton();
   const { PrimaryContent, SecondaryContent } = props;
-  console.log("FormLayoutコンポーネント");
+  console.log("\u001b[36m" + "FormLayoutコンポーネント");
   const methods = useForm<Select>();
   console.log(methods.formState.errors.theme);
   const onSubmit: SubmitHandler<Select> = (data) => {
@@ -85,7 +85,7 @@ export const FormLayout: VFC<Props> = (props) => {
       </form>
     </FormProvider>
   );
-};
+});
 
 const ExtendWrapper = styled(SWrapper)`
   height: 32vh !important;
