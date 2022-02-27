@@ -5,9 +5,9 @@ import { SecondaryPeriod } from "../components/pages/Periods";
 import { SecondaryConfirm } from "../components/pages/Confirms";
 import { useCheckSelected } from "../hooks/useCheckSelected";
 import { SecondaryResult } from "../components/pages/Result";
-import { JsxElement } from "typescript";
 
 type Paths = {
+  back: string;
   current: string;
   next: string;
   component: ReactNode;
@@ -16,34 +16,35 @@ type Paths = {
 export const Paths = (): Paths => {
   const { pathname } = useLocation();
   const path = useMemo(() => {
-    return [
-      "/form/theme",
-      "/form/period",
-      "/form/confirm",
-      "/default/result",
-    ].find((path) => matchPath(path, pathname));
+    return ["/", "/period", "/confirm", "/result"].find((path) =>
+      matchPath(path, pathname)
+    );
   }, [pathname]);
   console.log(path);
 
   const { themeState } = useCheckSelected();
-  const obj: Paths = { current: "", next: "", component: null };
+  const obj: Paths = { back: "", current: "", next: "", component: null };
   switch (path) {
-    case "/form/theme":
+    case "/":
+      obj.back = "/";
       obj.current = path;
-      obj.next = "/form/period";
+      obj.next = "/period";
       obj.component = <SecondaryTheme />;
       break;
-    case "/form/period":
+    case "/period":
+      obj.back = "/";
       obj.current = path;
-      obj.next = "/form/confirm";
+      obj.next = "/confirm";
       obj.component = <SecondaryPeriod />;
       break;
-    case "/form/confirm":
+    case "/confirm":
+      obj.back = "/period";
       obj.current = path;
       obj.next = `/generate?limit=${themeState.selected}`;
       obj.component = <SecondaryConfirm />;
       break;
-    case "/default/result":
+    case "/result":
+      obj.back = "/";
       obj.current = path;
       obj.next = "";
       obj.component = <SecondaryResult />;

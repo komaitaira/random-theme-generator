@@ -1,12 +1,9 @@
-// ボタン操作カスタムフック
-
-import axios from "axios";
 import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { generatedState } from "../store/generatedState";
 import { loadingState } from "../store/loadingState";
-
+import axios from "axios";
 axios.defaults.headers.post["Content-Type"] = "application/json;charset=utf-8";
 axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
 

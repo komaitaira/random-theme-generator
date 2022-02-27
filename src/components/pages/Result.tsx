@@ -10,6 +10,7 @@ import { generatedState } from "../../store/generatedState";
 import { LightBlueButton } from "../molecules/buttons/LightBlueButton";
 import { InfoBox } from "../molecules/box/InfoBox";
 import { SFlexWrapper } from "../atoms/wrapper/FlexWrapper";
+import { Paths } from "../../routes/Paths";
 
 export const PrimaryResult: VFC = () => {
   const { periodState, isSelectedAll } = useCheckSelected();
@@ -45,10 +46,11 @@ export const SecondaryResult: VFC = () => {
   const { isSelectedAll } = useCheckSelected();
   const themeList = useRecoilValue(generatedState);
   const { onClickBack } = useButton();
+  const paths = Paths();
   return isSelectedAll() && themeList.length > 0 ? (
     <>
       <Operation>
-        <WhiteButton onClickButton={() => onClickBack("/form/theme")}>
+        <WhiteButton onClickButton={() => onClickBack(paths.back)}>
           HOME
         </WhiteButton>
         <LightBlueButton onClickButton={() => console.log("aaa")}>
@@ -58,7 +60,7 @@ export const SecondaryResult: VFC = () => {
     </>
   ) : (
     <Operation>
-      <WhiteButton onClickButton={() => onClickBack("/form/theme")}>
+      <WhiteButton onClickButton={() => onClickBack(paths.back)}>
         HOME
       </WhiteButton>
     </Operation>

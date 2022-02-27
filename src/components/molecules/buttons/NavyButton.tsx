@@ -1,4 +1,4 @@
-import React, { memo, MouseEventHandler, ReactNode, VFC } from "react";
+import React, { memo, ReactNode, VFC } from "react";
 import styled from "styled-components";
 import { BaseButton } from "../../atoms/button/BaseButton";
 

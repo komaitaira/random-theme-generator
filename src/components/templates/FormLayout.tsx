@@ -1,4 +1,4 @@
-import React, { memo, ReactNode, useMemo, VFC } from "react";
+import React, { VFC } from "react";
 import { SecondaryArea } from "../atoms/layout/SecondaryArea";
 import { InnerPrimaryArea } from "../atoms/layout/InnerPrimaryArea";
 import { PrimaryArea } from "../atoms/layout/PrimaryArea";
@@ -8,54 +8,29 @@ import { SWrapper } from "../atoms/wrapper/Wrapper";
 import styled from "styled-components";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { useButton } from "../../hooks/useButton";
-import { matchPath, Outlet, useLocation } from "react-router-dom";
-import { SecondaryTheme } from "../pages/Themes";
-import { SecondaryPeriod } from "../pages/Periods";
-import { SecondaryConfirm } from "../pages/Confirms";
-import { useCheckSelected } from "../../hooks/useCheckSelected";
-import { JsxElement } from "typescript";
+import { Outlet } from "react-router-dom";
 import { Paths } from "../../routes/Paths";
-
-type Props = {
-  PrimaryContent?: ReactNode;
-  SecondaryContent?: ReactNode;
-  children?: ReactNode;
-};
 
 type Select = {
   theme: string;
   period: string;
 };
 
-// eslint-disable-next-line react/display-name
-export const FormLayout: VFC<Props> = memo((children, props) => {
-  console.log(children.children);
-  console.log(props);
-  console.log(<Outlet />);
-  const paths = Paths();
-
-  const secondaryComponent = paths && paths.component;
-
-  const { onClickNext } = useButton();
-  const { PrimaryContent, SecondaryContent } = props;
+export const FormLayout: VFC = () => {
   console.log("\u001b[36m" + "FormLayoutコンポーネント");
+  const { onClickNext } = useButton();
   const methods = useForm<Select>();
-  console.log(methods.formState.errors.theme);
-  const onSubmit: SubmitHandler<Select> = (data) => {
-    console.log(data);
-    console.log(methods.formState.errors);
-    if (Object.keys(methods.formState.errors).length === 0 && paths) {
-      paths.current.match(location.pathname) && onClickNext(paths.next);
-    }
-  };
+
+  const paths = Paths();
+  const secondaryComponent = paths && paths.component;
+  const vw = window.innerWidth;
+  const moveHeight = document.documentElement.clientHeight + "px";
 
   const setFillHeight = () => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   };
 
-  const vw = window.innerWidth;
-  const moveHeight = document.documentElement.clientHeight + "px";
   window.addEventListener("resize", () => {
     if (vw === window.innerWidth) {
       return;
@@ -66,6 +41,13 @@ export const FormLayout: VFC<Props> = memo((children, props) => {
       setFillHeight();
     }
   });
+
+  console.log(methods.formState.errors);
+  const onSubmit: SubmitHandler<Select> = () => {
+    if (Object.keys(methods.formState.errors).length === 0 && paths) {
+      paths.current.match(location.pathname) && onClickNext(paths.next);
+    }
+  };
 
   return (
     <FormProvider {...methods}>
@@ -93,7 +75,7 @@ export const FormLayout: VFC<Props> = memo((children, props) => {
       </form>
     </FormProvider>
   );
-});
+};
 
 const ExtendWrapper = styled(SWrapper)`
   height: 32vh !important;

@@ -11,6 +11,7 @@ import { useRecoilState } from "recoil";
 import { loadingState } from "../../store/loadingState";
 import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 import { InfoBox } from "../molecules/box/InfoBox";
+import { Paths } from "../../routes/Paths";
 
 export const PrimaryConfirm: VFC = () => {
   const { themeState, periodState, isSelectedAll } = useCheckSelected();
@@ -53,6 +54,7 @@ export const SecondaryConfirm: VFC = () => {
   const { isSelectedAll } = useCheckSelected();
   const [loading] = useRecoilState(loadingState);
   const { onClickBack } = useButton();
+  const paths = Paths();
 
   if (isSelectedAll()) {
     return loading ? (
@@ -68,7 +70,7 @@ export const SecondaryConfirm: VFC = () => {
           </FlexWrapper>
         </ExtendWrapper>
         <Operation>
-          <WhiteButton onClickButton={() => onClickBack("/form/period")}>
+          <WhiteButton onClickButton={() => onClickBack(paths.back)}>
             BACK
           </WhiteButton>
           <NavyButton>GENERATE</NavyButton>
@@ -78,7 +80,7 @@ export const SecondaryConfirm: VFC = () => {
   } else {
     return (
       <Operation>
-        <WhiteButton onClickButton={() => onClickBack("/form/period")}>
+        <WhiteButton onClickButton={() => onClickBack(paths.back)}>
           BACK
         </WhiteButton>
       </Operation>

@@ -1,33 +1,25 @@
-import React, { memo, ReactNode, VFC } from "react";
+import React, { VFC } from "react";
 import { SecondaryArea } from "../atoms/layout/SecondaryArea";
 import { InnerPrimaryArea } from "../atoms/layout/InnerPrimaryArea";
 import { PrimaryArea } from "../atoms/layout/PrimaryArea";
 import { Wave } from "../atoms/svg/Wave";
-import { SWrapper } from "../atoms/wrapper/Wrapper";
-import styled from "styled-components";
 import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 import { Outlet } from "react-router-dom";
 import { Paths } from "../../routes/Paths";
 
-type Props = {
-  PrimaryContent?: ReactNode;
-  SecondaryContent?: ReactNode;
-};
-// eslint-disable-next-line react/display-name
-export const DefaultLayout: VFC<Props> = memo((props) => {
-  const { PrimaryContent, SecondaryContent } = props;
+export const DefaultLayout: VFC = () => {
   console.log("DefaultLayoutコンポーネント");
 
   const paths = Paths();
   const secondaryComponent = paths && paths.component;
+  const vw = window.innerWidth;
+  const moveHeight = document.documentElement.clientHeight + "px";
 
   const setFillHeight = () => {
     const vh = window.innerHeight * 0.01;
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   };
 
-  const vw = window.innerWidth;
-  const moveHeight = document.documentElement.clientHeight + "px";
   window.addEventListener("resize", () => {
     if (vw === window.innerWidth) {
       return;
@@ -52,4 +44,4 @@ export const DefaultLayout: VFC<Props> = memo((props) => {
       <SecondaryArea>{secondaryComponent}</SecondaryArea>
     </div>
   );
-});
+};
