@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { memo, VFC } from "react";
 import { Title } from "../atoms/title/Title";
 import styled from "styled-components";
 import { Operation } from "../organisms/Operation";
@@ -12,7 +12,8 @@ import { InfoBox } from "../molecules/box/InfoBox";
 import { SFlexWrapper } from "../atoms/wrapper/FlexWrapper";
 import { Paths } from "../../routes/Paths";
 
-export const PrimaryResult: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const PrimaryResult: VFC = memo(() => {
   const { periodState, isSelectedAll } = useCheckSelected();
   const themeList = useRecoilValue(generatedState);
   console.log("PrimaryResultコンポーネント");
@@ -39,9 +40,10 @@ export const PrimaryResult: VFC = () => {
       </InfoBox>
     </div>
   );
-};
+});
 
-export const SecondaryResult: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const SecondaryResult: VFC = memo(() => {
   console.log("SecondaryResultコンポーネント");
   const { isSelectedAll } = useCheckSelected();
   const themeList = useRecoilValue(generatedState);
@@ -65,7 +67,7 @@ export const SecondaryResult: VFC = () => {
       </WhiteButton>
     </Operation>
   );
-};
+});
 
 const MainWrapper = styled(SFlexWrapper)`
   position: relative;

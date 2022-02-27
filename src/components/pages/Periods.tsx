@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { memo, VFC } from "react";
 import { Title } from "../atoms/title/Title";
 import { Operation } from "../organisms/Operation";
 import styled from "styled-components";
@@ -9,7 +9,8 @@ import { PeriodDatePicker } from "../molecules/datepicker/PeriodDatePicker";
 import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 import { Paths } from "../../routes/Paths";
 
-export const PrimaryPeriod: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const PrimaryPeriod: VFC = memo(() => {
   console.log("PrimaryPeriodコンポーネント");
   return (
     <div>
@@ -17,9 +18,10 @@ export const PrimaryPeriod: VFC = () => {
       <PeriodDatePicker />
     </div>
   );
-};
+});
 
-export const SecondaryPeriod: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const SecondaryPeriod: VFC = memo(() => {
   console.log("SecondaryPeriodコンポーネント");
   const { onClickBack } = useButton();
   const paths = Paths();
@@ -42,7 +44,7 @@ export const SecondaryPeriod: VFC = () => {
       </Operation>
     </>
   );
-};
+});
 
 const ExtendWrapper = styled.div`
   text-align: center;

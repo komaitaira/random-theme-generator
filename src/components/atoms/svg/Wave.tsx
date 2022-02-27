@@ -1,7 +1,9 @@
-import React, { VFC } from "react";
+import React, { memo, VFC } from "react";
 import styled from "styled-components";
 
-export const Wave: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const Wave: VFC = memo(() => {
+  console.log("Wave!!!");
   return (
     <SSvg
       className="waves"
@@ -22,7 +24,7 @@ export const Wave: VFC = () => {
       </g>
     </SSvg>
   );
-};
+});
 
 const SSvg = styled.svg`
   width: 100%;

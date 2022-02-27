@@ -1,8 +1,9 @@
-import React, { VFC } from "react";
+import React, { memo, VFC } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export const Page404: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const Page404: VFC = memo(() => {
   console.log("Page404コンポーネント");
   return (
     <div>
@@ -14,7 +15,7 @@ export const Page404: VFC = () => {
       <StyledLink to="/">Return to The Home?</StyledLink>
     </div>
   );
-};
+});
 
 const SMessage = styled.p`
   color: #fff;

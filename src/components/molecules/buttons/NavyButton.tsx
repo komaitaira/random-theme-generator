@@ -5,6 +5,7 @@ import { BaseButton } from "../../atoms/button/BaseButton";
 type Props = {
   children: ReactNode;
 };
+
 // eslint-disable-next-line react/display-name
 export const NavyButton: VFC<Props> = memo((props) => {
   console.log("NavyButton");
