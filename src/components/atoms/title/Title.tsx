@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import React, { VFC } from "react";
+import React, { memo, VFC } from "react";
 import { Wrapper } from "../wrapper/Wrapper";
 
-export const Title: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const Title: VFC = memo(() => {
   console.log("Titleコンポーネント");
   return (
     <Wrapper>
@@ -10,7 +11,7 @@ export const Title: VFC = () => {
       <SSubTitle>for photographer</SSubTitle>
     </Wrapper>
   );
-};
+});
 
 const STitle = styled.h1`
   color: #fff;

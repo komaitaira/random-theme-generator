@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { memo, VFC } from "react";
 import { Title } from "../atoms/title/Title";
 import { ThemeSelect } from "../molecules/selectboxes/ThemeSelect";
 import { Operation } from "../organisms/Operation";
@@ -8,7 +8,8 @@ import { OrangeButton } from "../molecules/buttons/OrangeButton";
 import { useButton } from "../../hooks/useButton";
 import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 
-export const PrimaryTheme: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const PrimaryTheme: VFC = memo(() => {
   console.log("\u001b[35m" + "PrimaryThemeコンポーネント");
   return (
     <div>
@@ -16,9 +17,10 @@ export const PrimaryTheme: VFC = () => {
       <ThemeSelect />
     </div>
   );
-};
+});
 
-export const SecondaryTheme: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const SecondaryTheme: VFC = memo(() => {
   console.log("\u001b[34m" + "SecondaryThemeコンポーネント");
   const { onClickBack } = useButton();
   return (
@@ -39,7 +41,7 @@ export const SecondaryTheme: VFC = () => {
       </Operation>
     </>
   );
-};
+});
 
 const ExtendWrapper = styled.div`
   text-align: center;

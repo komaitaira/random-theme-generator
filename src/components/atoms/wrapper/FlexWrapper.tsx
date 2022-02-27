@@ -1,15 +1,16 @@
-import React, { ReactNode, VFC } from "react";
+import React, { memo, ReactNode, VFC } from "react";
 import styled from "styled-components";
 
 type Props = {
   children: ReactNode;
 };
 
-export const FlexWrapper: VFC<Props> = (props) => {
+// eslint-disable-next-line react/display-name
+export const FlexWrapper: VFC<Props> = memo((props) => {
   const { children } = props;
   console.log("FlexWrapperコンポーネント");
   return <SFlexWrapper>{children}</SFlexWrapper>;
-};
+});
 
 export const SFlexWrapper = styled.div`
   display: flex;

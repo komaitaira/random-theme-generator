@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ja from "date-fns/locale/ja";
@@ -7,7 +7,8 @@ import { useSetRecoilState } from "recoil";
 import styled from "styled-components";
 import { Controller, useFormContext } from "react-hook-form";
 
-export const PeriodDatePicker = () => {
+// eslint-disable-next-line react/display-name
+export const PeriodDatePicker = memo(() => {
   const initialDate = new Date();
   const [startDate, setStartDate] = useState(initialDate);
   const setSelect = useSetRecoilState(selectedPeriodState);
@@ -46,7 +47,7 @@ export const PeriodDatePicker = () => {
       )}
     />
   );
-};
+});
 
 const SInput = styled.input`
   max-width: 340px;

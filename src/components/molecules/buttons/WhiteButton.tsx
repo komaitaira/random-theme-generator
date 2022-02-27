@@ -7,6 +7,7 @@ type Props = {
   onClickButton?: MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
 };
+
 // eslint-disable-next-line react/display-name
 export const WhiteButton: VFC<Props> = memo((props) => {
   console.log("WhiteButton");

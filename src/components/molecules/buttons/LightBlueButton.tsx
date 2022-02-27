@@ -6,6 +6,7 @@ type Props = {
   children: ReactNode;
   onClickButton: MouseEventHandler<HTMLButtonElement>;
 };
+
 // eslint-disable-next-line react/display-name
 export const LightBlueButton: VFC<Props> = memo((props) => {
   console.log("LightBlueButton");
