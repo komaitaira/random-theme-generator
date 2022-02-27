@@ -63,6 +63,15 @@ h1 {
   border-radius: 50%;
 }
 
+.react-datepicker__day--keyboard-selected,
+.react-datepicker__month-text--keyboard-selected,
+.react-datepicker__quarter-text--keyboard-selected,
+.react-datepicker__year-text--keyboard-selected {
+  background-color: #fff;
+  border-radius: 50%;
+  color: #000;
+}
+
 .react-datepicker__triangle {
   transform: translate3d(127px, 0px, 0px) !important;
 }
