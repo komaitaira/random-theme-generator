@@ -11,6 +11,7 @@ import { useRecoilState } from "recoil";
 import { loadingState } from "../../store/loadingState";
 import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 import { InfoBox } from "../molecules/box/InfoBox";
+import { Paths } from "../../routes/Paths";
 
 export const PrimaryConfirm: VFC = () => {
   const { themeState, periodState, isSelectedAll } = useCheckSelected();
@@ -18,12 +19,14 @@ export const PrimaryConfirm: VFC = () => {
   console.log("PrimaryConfirmコンポーネント");
   if (isSelectedAll()) {
     return loading ? (
-      <div>
-        <FlexWrapper>
-          <BallTriangle color="#00BFFF" height={90} width={90} />
-        </FlexWrapper>
-        <SP>Now Generating...</SP>
-      </div>
+      <FlexWrapper>
+        <div>
+          <FlexWrapper>
+            <BallTriangle color="#00BFFF" height={90} width={90} />
+          </FlexWrapper>
+          <SP>Now Generating...</SP>
+        </div>
+      </FlexWrapper>
     ) : (
       <div>
         <Title />
@@ -48,9 +51,10 @@ export const PrimaryConfirm: VFC = () => {
 
 export const SecondaryConfirm: VFC = () => {
   console.log("SecondaryConfirmコンポーネント");
-  const { themeState, isSelectedAll } = useCheckSelected();
+  const { isSelectedAll } = useCheckSelected();
   const [loading] = useRecoilState(loadingState);
-  const { onClickBack, onClickGenerate } = useButton();
+  const { onClickBack } = useButton();
+  const paths = Paths();
 
   if (isSelectedAll()) {
     return loading ? (
@@ -66,23 +70,17 @@ export const SecondaryConfirm: VFC = () => {
           </FlexWrapper>
         </ExtendWrapper>
         <Operation>
-          <WhiteButton onClickButton={() => onClickBack("/period")}>
+          <WhiteButton onClickButton={() => onClickBack(paths.back)}>
             BACK
           </WhiteButton>
-          <NavyButton
-            onClickButton={() => {
-              onClickGenerate(`/generate?limit=${themeState.selected}`);
-            }}
-          >
-            GENERATE
-          </NavyButton>
+          <NavyButton>GENERATE</NavyButton>
         </Operation>
       </>
     );
   } else {
     return (
       <Operation>
-        <WhiteButton onClickButton={() => onClickBack("/period")}>
+        <WhiteButton onClickButton={() => onClickBack(paths.back)}>
           BACK
         </WhiteButton>
       </Operation>

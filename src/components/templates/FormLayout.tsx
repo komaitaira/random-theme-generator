@@ -1,4 +1,4 @@
-import React, { ReactNode, VFC } from "react";
+import React, { VFC } from "react";
 import { SecondaryArea } from "../atoms/layout/SecondaryArea";
 import { InnerPrimaryArea } from "../atoms/layout/InnerPrimaryArea";
 import { PrimaryArea } from "../atoms/layout/PrimaryArea";
@@ -8,39 +8,22 @@ import { SWrapper } from "../atoms/wrapper/Wrapper";
 import styled from "styled-components";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { useButton } from "../../hooks/useButton";
-
-type Props = {
-  PrimaryContent?: ReactNode;
-  SecondaryContent?: ReactNode;
-};
+import { Outlet } from "react-router-dom";
+import { Paths } from "../../routes/Paths";
 
 type Select = {
   theme: string;
   period: string;
 };
 
-export const FormLayout: VFC<Props> = (props) => {
+export const FormLayout: VFC = () => {
+  console.log("\u001b[36m" + "FormLayoutコンポーネント");
   const { onClickNext } = useButton();
-  const { PrimaryContent, SecondaryContent } = props;
-  console.log("FormLayoutコンポーネント");
   const methods = useForm<Select>();
-  console.log(methods.formState.errors.theme);
-  const onSubmit: SubmitHandler<Select> = (data) => {
-    console.log(data);
-    console.log(methods.formState.errors);
-    if (
-      !methods.formState.errors.theme &&
-      /http:\/\/localhost:3000\/$/.test(location.href)
-    ) {
-      onClickNext("/period");
-    } else if (
-      !methods.formState.errors.period &&
-      /\/period$/.test(location.href)
-    ) {
-      onClickNext("/confirm");
-    }
-  };
 
+  const paths = Paths();
+  const secondaryComponent = paths && paths.component;
+  const vw = window.innerWidth;
   const moveHeight = document.documentElement.clientHeight + "px";
 
   const setFillHeight = () => {
@@ -48,23 +31,23 @@ export const FormLayout: VFC<Props> = (props) => {
     document.documentElement.style.setProperty("--vh", `${vh}px`);
   };
 
-  // ここからリサイズの対応
-  // const vw = window.innerWidth;
   window.addEventListener("resize", () => {
-    // if (vw === window.innerWidth) {
-    //   console.log("変更なし");
-    //   // 画面の横幅にサイズ変動がないので処理を終える
-    //   return;
-    // }
-
-    // 画面の横幅のサイズ変動があった時のみ高さを再計算する
-    document.forms[0].style.height =
-      document.documentElement.clientHeight + "px";
-    setFillHeight();
+    if (vw === window.innerWidth) {
+      return;
+    }
+    const formLayout = document.forms[0];
+    if (formLayout) {
+      formLayout.style.height = document.documentElement.clientHeight + "px";
+      setFillHeight();
+    }
   });
 
-  // 実行
-  setFillHeight();
+  console.log(methods.formState.errors);
+  const onSubmit: SubmitHandler<Select> = () => {
+    if (Object.keys(methods.formState.errors).length === 0 && paths) {
+      paths.current.match(location.pathname) && onClickNext(paths.next);
+    }
+  };
 
   return (
     <FormProvider {...methods}>
@@ -76,7 +59,7 @@ export const FormLayout: VFC<Props> = (props) => {
           <InnerPrimaryArea>
             <FlexWrapper>
               <ExtendWrapper>
-                {PrimaryContent}
+                <Outlet />
                 {methods.formState.errors.theme && (
                   <SErrorMessage>*必須項目です。</SErrorMessage>
                 )}
@@ -88,7 +71,7 @@ export const FormLayout: VFC<Props> = (props) => {
           </InnerPrimaryArea>
           <Wave />
         </PrimaryArea>
-        <SecondaryArea>{SecondaryContent}</SecondaryArea>
+        <SecondaryArea>{secondaryComponent}</SecondaryArea>
       </form>
     </FormProvider>
   );

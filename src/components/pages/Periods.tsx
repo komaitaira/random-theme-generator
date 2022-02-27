@@ -7,6 +7,7 @@ import { OrangeButton } from "../molecules/buttons/OrangeButton";
 import { useButton } from "../../hooks/useButton";
 import { PeriodDatePicker } from "../molecules/datepicker/PeriodDatePicker";
 import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
+import { Paths } from "../../routes/Paths";
 
 export const PrimaryPeriod: VFC = () => {
   console.log("PrimaryPeriodコンポーネント");
@@ -21,6 +22,8 @@ export const PrimaryPeriod: VFC = () => {
 export const SecondaryPeriod: VFC = () => {
   console.log("SecondaryPeriodコンポーネント");
   const { onClickBack } = useButton();
+  const paths = Paths();
+
   return (
     <>
       <ExtendWrapper>
@@ -32,7 +35,9 @@ export const SecondaryPeriod: VFC = () => {
         </FlexWrapper>
       </ExtendWrapper>
       <Operation>
-        <WhiteButton onClickButton={() => onClickBack("/")}>BACK</WhiteButton>
+        <WhiteButton onClickButton={() => onClickBack(paths.back)}>
+          BACK
+        </WhiteButton>
         <OrangeButton>NEXT</OrangeButton>
       </Operation>
     </>

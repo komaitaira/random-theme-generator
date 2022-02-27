@@ -1,16 +1,16 @@
-import React, { MouseEventHandler, ReactNode, VFC } from "react";
+import React, { memo, ReactNode, VFC } from "react";
 import styled from "styled-components";
 import { BaseButton } from "../../atoms/button/BaseButton";
 
 type Props = {
   children: ReactNode;
-  onClickButton: MouseEventHandler<HTMLButtonElement>;
 };
-
-export const NavyButton: VFC<Props> = (props) => {
-  const { children, onClickButton } = props;
-  return <SButton onClick={onClickButton}>{children}</SButton>;
-};
+// eslint-disable-next-line react/display-name
+export const NavyButton: VFC<Props> = memo((props) => {
+  console.log("NavyButton");
+  const { children } = props;
+  return <SButton type="submit">{children}</SButton>;
+});
 
 const SButton = styled(BaseButton)`
   background-color: #092856;

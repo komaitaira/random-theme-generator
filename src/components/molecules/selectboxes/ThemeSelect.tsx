@@ -1,10 +1,11 @@
-import React, { VFC } from "react";
+import React, { memo, VFC } from "react";
 import { BaseSelect } from "../../atoms/selectbox/BaseSelect";
 import { useSetRecoilState } from "recoil";
 import { selectedThemeState } from "../../../store/selectState";
 import { useFormContext } from "react-hook-form";
 
-export const ThemeSelect: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const ThemeSelect: VFC = memo(() => {
   const setSelect = useSetRecoilState(selectedThemeState);
   console.log("ThemeSelectコンポーネント");
   const onChangeTheme = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -34,4 +35,4 @@ export const ThemeSelect: VFC = () => {
       <option value="10">10</option>
     </BaseSelect>
   );
-};
+});
