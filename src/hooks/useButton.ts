@@ -34,7 +34,7 @@ export const useButton = () => {
       const res = await axios.get(`http://localhost:8000${path}`);
       setThemeList(res.data.themelist);
       console.log("onClickGenerate called.");
-      navigate("/default/result");
+      navigate("/result");
     } catch (error) {
       console.error(error);
     } finally {
