@@ -1,19 +1,13 @@
-import React, { ReactNode, useMemo } from "react";
+import React, { useMemo } from "react";
 import { matchPath, useLocation } from "react-router-dom";
 import { SecondaryTheme } from "../components/pages/Themes";
 import { SecondaryPeriod } from "../components/pages/Periods";
 import { SecondaryConfirm } from "../components/pages/Confirms";
 import { useCheckSelected } from "../hooks/useCheckSelected";
 import { SecondaryResult } from "../components/pages/Result";
+import { PathsType } from "../types/paths";
 
-type Paths = {
-  back: string;
-  current: string;
-  next: string;
-  component: ReactNode;
-};
-
-export const Paths = (): Paths => {
+export const Paths = (): PathsType => {
   const { pathname } = useLocation();
   const path = useMemo(() => {
     return ["/", "/period", "/confirm", "/result"].find((path) =>
@@ -23,7 +17,7 @@ export const Paths = (): Paths => {
   console.log(path);
 
   const { themeState } = useCheckSelected();
-  const obj: Paths = { back: "", current: "", next: "", component: null };
+  const obj: PathsType = { back: "", current: "", next: "", component: null };
   switch (path) {
     case "/":
       obj.back = "/";

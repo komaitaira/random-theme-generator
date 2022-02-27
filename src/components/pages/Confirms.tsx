@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { memo, VFC } from "react";
 import { Title } from "../atoms/title/Title";
 import styled from "styled-components";
 import { Operation } from "../organisms/Operation";
@@ -13,7 +13,8 @@ import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 import { InfoBox } from "../molecules/box/InfoBox";
 import { Paths } from "../../routes/Paths";
 
-export const PrimaryConfirm: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const PrimaryConfirm: VFC = memo(() => {
   const { themeState, periodState, isSelectedAll } = useCheckSelected();
   const [loading] = useRecoilState(loadingState);
   console.log("PrimaryConfirmコンポーネント");
@@ -47,9 +48,10 @@ export const PrimaryConfirm: VFC = () => {
       </div>
     );
   }
-};
+});
 
-export const SecondaryConfirm: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const SecondaryConfirm: VFC = memo(() => {
   console.log("SecondaryConfirmコンポーネント");
   const { isSelectedAll } = useCheckSelected();
   const [loading] = useRecoilState(loadingState);
@@ -86,7 +88,7 @@ export const SecondaryConfirm: VFC = () => {
       </Operation>
     );
   }
-};
+});
 
 const ExtendWrapper = styled.div`
   text-align: center;

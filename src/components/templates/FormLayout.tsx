@@ -1,4 +1,4 @@
-import React, { VFC } from "react";
+import React, { memo, useCallback, useEffect, VFC } from "react";
 import { SecondaryArea } from "../atoms/layout/SecondaryArea";
 import { InnerPrimaryArea } from "../atoms/layout/InnerPrimaryArea";
 import { PrimaryArea } from "../atoms/layout/PrimaryArea";
@@ -16,7 +16,8 @@ type Select = {
   period: string;
 };
 
-export const FormLayout: VFC = () => {
+// eslint-disable-next-line react/display-name
+export const FormLayout: VFC = memo(() => {
   console.log("\u001b[36m" + "FormLayoutコンポーネント");
   const { onClickNext } = useButton();
   const methods = useForm<Select>();
@@ -26,28 +27,28 @@ export const FormLayout: VFC = () => {
   const vw = window.innerWidth;
   const moveHeight = document.documentElement.clientHeight + "px";
 
-  const setFillHeight = () => {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-  };
+  useEffect(() => {
+    const setFillHeight = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+    window.addEventListener("resize", () => {
+      if (vw === window.innerWidth) {
+        return;
+      }
+      const formLayout = document.forms[0];
+      if (formLayout) {
+        formLayout.style.height = document.documentElement.clientHeight + "px";
+        setFillHeight();
+      }
+    });
+  }, [vw]);
 
-  window.addEventListener("resize", () => {
-    if (vw === window.innerWidth) {
-      return;
-    }
-    const formLayout = document.forms[0];
-    if (formLayout) {
-      formLayout.style.height = document.documentElement.clientHeight + "px";
-      setFillHeight();
-    }
-  });
-
-  console.log(methods.formState.errors);
-  const onSubmit: SubmitHandler<Select> = () => {
+  const onSubmit: SubmitHandler<Select> = useCallback(() => {
     if (Object.keys(methods.formState.errors).length === 0 && paths) {
       paths.current.match(location.pathname) && onClickNext(paths.next);
     }
-  };
+  }, [paths]);
 
   return (
     <FormProvider {...methods}>
@@ -75,7 +76,7 @@ export const FormLayout: VFC = () => {
       </form>
     </FormProvider>
   );
-};
+});
 
 const ExtendWrapper = styled(SWrapper)`
   height: 32vh !important;

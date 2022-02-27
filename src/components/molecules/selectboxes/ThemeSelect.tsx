@@ -1,4 +1,4 @@
-import React, { memo, VFC } from "react";
+import React, { memo, useCallback, VFC } from "react";
 import { BaseSelect } from "../../atoms/selectbox/BaseSelect";
 import { useSetRecoilState } from "recoil";
 import { selectedThemeState } from "../../../store/selectState";
@@ -6,17 +6,20 @@ import { useFormContext } from "react-hook-form";
 
 // eslint-disable-next-line react/display-name
 export const ThemeSelect: VFC = memo(() => {
-  const setSelect = useSetRecoilState(selectedThemeState);
   console.log("ThemeSelectコンポーネント");
-  const onChangeTheme = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const text = e.target.selectedOptions[0].textContent;
-    if (typeof text !== "string") {
-      return;
-    }
-    setSelect({ selected: text });
-  };
-
+  const setSelect = useSetRecoilState(selectedThemeState);
   const { register } = useFormContext();
+
+  const onChangeTheme = useCallback(
+    (e: React.ChangeEvent<HTMLSelectElement>) => {
+      const text = e.target.selectedOptions[0].textContent;
+      if (typeof text !== "string") {
+        return;
+      }
+      setSelect({ selected: text });
+    },
+    []
+  );
 
   return (
     <BaseSelect
