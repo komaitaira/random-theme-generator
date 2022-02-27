@@ -1,4 +1,4 @@
-import React, { memo, ReactNode, VFC } from "react";
+import React, { memo, ReactNode, useMemo, VFC } from "react";
 import { SecondaryArea } from "../atoms/layout/SecondaryArea";
 import { InnerPrimaryArea } from "../atoms/layout/InnerPrimaryArea";
 import { PrimaryArea } from "../atoms/layout/PrimaryArea";
@@ -8,18 +8,34 @@ import { SWrapper } from "../atoms/wrapper/Wrapper";
 import styled from "styled-components";
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
 import { useButton } from "../../hooks/useButton";
+import { matchPath, Outlet, useLocation } from "react-router-dom";
+import { SecondaryTheme } from "../pages/Themes";
+import { SecondaryPeriod } from "../pages/Periods";
+import { SecondaryConfirm } from "../pages/Confirms";
+import { useCheckSelected } from "../../hooks/useCheckSelected";
+import { JsxElement } from "typescript";
+import { Paths } from "../../routes/Paths";
 
 type Props = {
   PrimaryContent?: ReactNode;
   SecondaryContent?: ReactNode;
+  children?: ReactNode;
 };
 
 type Select = {
   theme: string;
   period: string;
 };
+
 // eslint-disable-next-line react/display-name
-export const FormLayout: VFC<Props> = memo((props) => {
+export const FormLayout: VFC<Props> = memo((children, props) => {
+  console.log(children.children);
+  console.log(props);
+  console.log(<Outlet />);
+  const paths = Paths();
+
+  const secondaryComponent = paths && paths.component;
+
   const { onClickNext } = useButton();
   const { PrimaryContent, SecondaryContent } = props;
   console.log("\u001b[36m" + "FormLayoutコンポーネント");
@@ -28,16 +44,8 @@ export const FormLayout: VFC<Props> = memo((props) => {
   const onSubmit: SubmitHandler<Select> = (data) => {
     console.log(data);
     console.log(methods.formState.errors);
-    if (
-      !methods.formState.errors.theme &&
-      /http:\/\/localhost:3000\/$/.test(location.href)
-    ) {
-      onClickNext("/period");
-    } else if (
-      !methods.formState.errors.period &&
-      /\/period$/.test(location.href)
-    ) {
-      onClickNext("/confirm");
+    if (Object.keys(methods.formState.errors).length === 0 && paths) {
+      paths.current.match(location.pathname) && onClickNext(paths.next);
     }
   };
 
@@ -69,7 +77,7 @@ export const FormLayout: VFC<Props> = memo((props) => {
           <InnerPrimaryArea>
             <FlexWrapper>
               <ExtendWrapper>
-                {PrimaryContent}
+                <Outlet />
                 {methods.formState.errors.theme && (
                   <SErrorMessage>*必須項目です。</SErrorMessage>
                 )}
@@ -81,7 +89,7 @@ export const FormLayout: VFC<Props> = memo((props) => {
           </InnerPrimaryArea>
           <Wave />
         </PrimaryArea>
-        <SecondaryArea>{SecondaryContent}</SecondaryArea>
+        <SecondaryArea>{secondaryComponent}</SecondaryArea>
       </form>
     </FormProvider>
   );

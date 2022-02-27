@@ -32,7 +32,9 @@ export const SecondaryPeriod: VFC = () => {
         </FlexWrapper>
       </ExtendWrapper>
       <Operation>
-        <WhiteButton onClickButton={() => onClickBack("/")}>BACK</WhiteButton>
+        <WhiteButton onClickButton={() => onClickBack("/form/theme")}>
+          BACK
+        </WhiteButton>
         <OrangeButton>NEXT</OrangeButton>
       </Operation>
     </>

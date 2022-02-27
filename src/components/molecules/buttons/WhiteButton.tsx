@@ -4,13 +4,18 @@ import { BaseButton } from "../../atoms/button/BaseButton";
 
 type Props = {
   children: ReactNode;
-  onClickButton: MouseEventHandler<HTMLButtonElement>;
+  onClickButton?: MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
 };
 // eslint-disable-next-line react/display-name
 export const WhiteButton: VFC<Props> = memo((props) => {
   console.log("WhiteButton");
-  const { children, onClickButton } = props;
-  return <SButton onClick={onClickButton}>{children}</SButton>;
+  const { children, onClickButton, disabled } = props;
+  return (
+    <SButton onClick={onClickButton} disabled={disabled}>
+      {children}
+    </SButton>
+  );
 });
 
 const SButton = styled(BaseButton)`

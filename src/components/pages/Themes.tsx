@@ -32,7 +32,12 @@ export const SecondaryTheme: VFC = () => {
         </FlexWrapper>
       </ExtendWrapper>
       <Operation>
-        <WhiteButton onClickButton={() => onClickBack("/")}>BACK</WhiteButton>
+        <WhiteButton
+          onClickButton={() => onClickBack("/form/theme")}
+          disabled={true}
+        >
+          BACK
+        </WhiteButton>
         <OrangeButton>NEXT</OrangeButton>
       </Operation>
     </>

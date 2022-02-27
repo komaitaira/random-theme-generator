@@ -6,6 +6,8 @@ import { Wave } from "../atoms/svg/Wave";
 import { SWrapper } from "../atoms/wrapper/Wrapper";
 import styled from "styled-components";
 import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
+import { Outlet } from "react-router-dom";
+import { Paths } from "../../routes/Paths";
 
 type Props = {
   PrimaryContent?: ReactNode;
@@ -15,6 +17,9 @@ type Props = {
 export const DefaultLayout: VFC<Props> = memo((props) => {
   const { PrimaryContent, SecondaryContent } = props;
   console.log("DefaultLayoutコンポーネント");
+
+  const paths = Paths();
+  const secondaryComponent = paths && paths.component;
 
   const setFillHeight = () => {
     const vh = window.innerHeight * 0.01;
@@ -38,11 +43,13 @@ export const DefaultLayout: VFC<Props> = memo((props) => {
     <div id="default-layout" style={{ height: moveHeight }}>
       <PrimaryArea>
         <InnerPrimaryArea>
-          <FlexWrapper>{PrimaryContent}</FlexWrapper>
+          <FlexWrapper>
+            <Outlet />
+          </FlexWrapper>
         </InnerPrimaryArea>
         <Wave />
       </PrimaryArea>
-      <SecondaryArea>{SecondaryContent}</SecondaryArea>
+      <SecondaryArea>{secondaryComponent}</SecondaryArea>
     </div>
   );
 });

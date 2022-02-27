@@ -11,42 +11,14 @@ export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <FormLayout
-              PrimaryContent={<PrimaryTheme />}
-              SecondaryContent={<SecondaryTheme />}
-            ></FormLayout>
-          }
-        />
-        <Route
-          path="period"
-          element={
-            <FormLayout
-              PrimaryContent={<PrimaryPeriod />}
-              SecondaryContent={<SecondaryPeriod />}
-            ></FormLayout>
-          }
-        />
-        <Route
-          path="confirm"
-          element={
-            <FormLayout
-              PrimaryContent={<PrimaryConfirm />}
-              SecondaryContent={<SecondaryConfirm />}
-            ></FormLayout>
-          }
-        />
-        <Route
-          path="result"
-          element={
-            <DefaultLayout
-              PrimaryContent={<PrimaryResult />}
-              SecondaryContent={<SecondaryResult />}
-            ></DefaultLayout>
-          }
-        />
+        <Route path="/form/*" element={<FormLayout />}>
+          <Route path="theme" element={<PrimaryTheme />}></Route>
+          <Route path="period" element={<PrimaryPeriod />}></Route>
+          <Route path="confirm" element={<PrimaryConfirm />}></Route>
+        </Route>
+        <Route path="/default/*" element={<DefaultLayout />}>
+          <Route path="result" element={<PrimaryResult />}></Route>
+        </Route>
         <Route
           path="*"
           element={<DefaultLayout PrimaryContent={<Page404 />}></DefaultLayout>}

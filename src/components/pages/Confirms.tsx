@@ -50,9 +50,9 @@ export const PrimaryConfirm: VFC = () => {
 
 export const SecondaryConfirm: VFC = () => {
   console.log("SecondaryConfirmコンポーネント");
-  const { themeState, isSelectedAll } = useCheckSelected();
+  const { isSelectedAll } = useCheckSelected();
   const [loading] = useRecoilState(loadingState);
-  const { onClickBack, onClickGenerate } = useButton();
+  const { onClickBack } = useButton();
 
   if (isSelectedAll()) {
     return loading ? (
@@ -68,23 +68,17 @@ export const SecondaryConfirm: VFC = () => {
           </FlexWrapper>
         </ExtendWrapper>
         <Operation>
-          <WhiteButton onClickButton={() => onClickBack("/period")}>
+          <WhiteButton onClickButton={() => onClickBack("/form/period")}>
             BACK
           </WhiteButton>
-          <NavyButton
-            onClickButton={() => {
-              onClickGenerate(`/generate?limit=${themeState.selected}`);
-            }}
-          >
-            GENERATE
-          </NavyButton>
+          <NavyButton>GENERATE</NavyButton>
         </Operation>
       </>
     );
   } else {
     return (
       <Operation>
-        <WhiteButton onClickButton={() => onClickBack("/period")}>
+        <WhiteButton onClickButton={() => onClickBack("/form/period")}>
           BACK
         </WhiteButton>
       </Operation>

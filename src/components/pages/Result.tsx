@@ -48,7 +48,9 @@ export const SecondaryResult: VFC = () => {
   return isSelectedAll() && themeList.length > 0 ? (
     <>
       <Operation>
-        <WhiteButton onClickButton={() => onClickBack("/")}>HOME</WhiteButton>
+        <WhiteButton onClickButton={() => onClickBack("/form/theme")}>
+          HOME
+        </WhiteButton>
         <LightBlueButton onClickButton={() => console.log("aaa")}>
           TWEET
         </LightBlueButton>
@@ -56,7 +58,9 @@ export const SecondaryResult: VFC = () => {
     </>
   ) : (
     <Operation>
-      <WhiteButton onClickButton={() => onClickBack("/")}>HOME</WhiteButton>
+      <WhiteButton onClickButton={() => onClickBack("/form/theme")}>
+        HOME
+      </WhiteButton>
     </Operation>
   );
 };
