@@ -20,10 +20,10 @@ export const PeriodDatePicker = memo(() => {
     if (date) {
       const d = getDateObj(date);
       const selectedDay = `${d.year}年${d.month}月${d.day}日(${d.dayOfWeek})`;
-      setStartDate(new Date(`${d.year}-${d.month}-${d.day} 23:59:59`));
+      setStartDate(new Date(`${d.year}/${d.month}/${d.day}`));
       setSelect({
         selected: selectedDay,
-        selected_date: `${d.year}-${d.month}-${d.day}`,
+        selected_date: `${d.year}/${d.month}/${d.day}`,
       });
     }
   };
@@ -38,7 +38,7 @@ export const PeriodDatePicker = memo(() => {
             validate: () => {
               const now = new Date();
               const d = getDateObj(now);
-              return startDate >= new Date(`${d.year}-${d.month}-${d.day}`);
+              return startDate >= new Date(`${d.year}/${d.month}/${d.day}`);
             },
           })}
           dateFormat="yyyy/MM/dd"
