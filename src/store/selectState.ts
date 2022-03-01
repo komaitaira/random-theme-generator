@@ -26,7 +26,7 @@ export const selectedPeriodState = atom({
   key: "selectedPeriodState",
   default: {
     selected: `${d.year}年${d.month}月${d.day}日(${d.dayOfWeek})`,
-    selected_date: `${d.year}-${d.month}-${d.day}`,
+    selected_date: `${d.year}/${d.month}/${d.day}`,
   },
   effects_UNSTABLE: [persistAtom],
 });
