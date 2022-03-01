@@ -13,6 +13,9 @@ export const InfoBox = styled(SWrapper)`
   position: relative;
   z-index: 100;
   @media screen and (max-height: 800px) {
-    max-height: 45vh;
+    max-height: 60vh;
+  }
+  @media screen and (max-height: 653px) {
+    max-height: 55vh;
   }
 `;
