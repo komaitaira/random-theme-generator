@@ -3,7 +3,7 @@ import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ja from "date-fns/locale/ja";
 import { getDateObj, selectedPeriodState } from "../../../store/selectState";
-import { useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { Controller, useFormContext } from "react-hook-form";
 
@@ -11,7 +11,7 @@ import { Controller, useFormContext } from "react-hook-form";
 export const PeriodDatePicker = memo(() => {
   const initialDate = new Date();
   const [startDate, setStartDate] = useState(initialDate);
-  const setSelect = useSetRecoilState(selectedPeriodState);
+  const [select, setSelect] = useRecoilState(selectedPeriodState);
   registerLocale("ja", ja);
   const { register, control } = useFormContext();
 
@@ -20,8 +20,11 @@ export const PeriodDatePicker = memo(() => {
     if (date) {
       const d = getDateObj(date);
       const selectedDay = `${d.year}年${d.month}月${d.day}日(${d.dayOfWeek})`;
-      setStartDate(new Date(`${d.year}-${d.month}-${d.day} 23:59:59`));
-      setSelect({ selected: selectedDay });
+      setStartDate(new Date(`${d.year}/${d.month}/${d.day}`));
+      setSelect({
+        selected: selectedDay,
+        selected_date: `${d.year}/${d.month}/${d.day}`,
+      });
     }
   };
 
@@ -35,12 +38,12 @@ export const PeriodDatePicker = memo(() => {
             validate: () => {
               const now = new Date();
               const d = getDateObj(now);
-              return startDate >= new Date(`${d.year}-${d.month}-${d.day}`);
+              return startDate >= new Date(`${d.year}/${d.month}/${d.day}`);
             },
           })}
           dateFormat="yyyy/MM/dd"
           locale="ja"
-          selected={startDate}
+          selected={new Date(select.selected_date)}
           onChange={handleChange}
           customInput={<SInput />}
         />
