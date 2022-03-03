@@ -13,7 +13,6 @@ export const DefaultLayout: VFC = memo(() => {
 
   const paths = Paths();
   const secondaryComponent = paths && paths.component;
-  const vw = window.innerWidth;
   const moveHeight = document.documentElement.clientHeight + "px";
 
   useEffect(() => {
@@ -22,9 +21,6 @@ export const DefaultLayout: VFC = memo(() => {
       document.documentElement.style.setProperty("--vh", `${vh}px`);
     };
     window.addEventListener("resize", () => {
-      if (vw === window.innerWidth) {
-        return;
-      }
       const defaultLayout = document.getElementById("default-layout");
       if (defaultLayout) {
         defaultLayout.style.height =
@@ -32,7 +28,7 @@ export const DefaultLayout: VFC = memo(() => {
         setFillHeight();
       }
     });
-  }, [vw]);
+  }, []);
 
   return (
     <div id="default-layout" style={{ height: moveHeight }}>
