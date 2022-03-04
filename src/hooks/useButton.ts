@@ -12,15 +12,11 @@ export const useButton = () => {
   const setLoading = useSetRecoilState(loadingState);
   const navigate = useNavigate();
 
-  console.log(themeList);
-
   const onClickBack = useCallback((path: string) => {
-    console.log("onClickBack called.");
     navigate(path);
   }, []);
 
   const onClickNext = useCallback((path: string) => {
-    console.log("onClickNext called.");
     if (/\/generate\?limit=([1-9]|10)$/.test(path)) {
       onClickGenerate(path);
     } else {
@@ -33,7 +29,6 @@ export const useButton = () => {
     try {
       const res = await axios.get(`http://localhost:8000${path}`);
       setThemeList(res.data.themelist);
-      console.log("onClickGenerate called.");
       navigate("/result");
     } catch (error) {
       console.error(error);

@@ -16,7 +16,6 @@ import { Paths } from "../../routes/Paths";
 export const PrimaryResult: VFC = memo(() => {
   const { periodState, isSelectedAll } = useCheckSelected();
   const themeList = useRecoilValue(generatedState);
-  console.log("PrimaryResultコンポーネント");
   return isSelectedAll() && themeList.length > 0 ? (
     <MainWrapper>
       <div>
@@ -44,7 +43,6 @@ export const PrimaryResult: VFC = memo(() => {
 
 // eslint-disable-next-line react/display-name
 export const SecondaryResult: VFC = memo(() => {
-  console.log("SecondaryResultコンポーネント");
   const { isSelectedAll } = useCheckSelected();
   const themeList = useRecoilValue(generatedState);
   const { onClickBack } = useButton();
@@ -55,7 +53,7 @@ export const SecondaryResult: VFC = memo(() => {
         <WhiteButton onClickButton={() => onClickBack(paths.back)}>
           HOME
         </WhiteButton>
-        <LightBlueButton onClickButton={() => console.log("aaa")}>
+        <LightBlueButton onClickButton={() => console.log("クリック")}>
           TWEET
         </LightBlueButton>
       </Operation>

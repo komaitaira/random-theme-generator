@@ -1,5 +1,4 @@
 import styled from "styled-components";
-console.log("BaseSelectコンポーネント");
 export const BaseSelect = styled.select`
   max-width: 340px;
   width: 100%;

@@ -7,7 +7,6 @@ type Props = {
 // eslint-disable-next-line react/display-name
 export const SecondaryArea: VFC<Props> = memo((props) => {
   const { children } = props;
-  console.log("\u001b[33m" + "SecondaryAreaコンポーネント");
   return <SSecondaryArea>{children}</SSecondaryArea>;
 });
 

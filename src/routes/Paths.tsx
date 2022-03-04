@@ -14,7 +14,6 @@ export const Paths = (): PathsType => {
       matchPath(path, pathname)
     );
   }, [pathname]);
-  console.log(path);
 
   const { themeState } = useCheckSelected();
   const obj: PathsType = { back: "", current: "", next: "", component: null };

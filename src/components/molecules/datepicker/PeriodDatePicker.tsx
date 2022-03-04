@@ -38,7 +38,6 @@ export const PeriodDatePicker: VFC = memo(() => {
   };
 
   const handleChange = (date: Date) => {
-    console.log(date); // 選択した日時
     if (date) {
       const d = getDateObj(date);
       const selectedDay = `${d.year}年${d.month}月${d.day}日(${d.dayOfWeek})`;

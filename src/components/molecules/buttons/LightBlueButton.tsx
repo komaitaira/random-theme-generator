@@ -9,7 +9,6 @@ type Props = {
 
 // eslint-disable-next-line react/display-name
 export const LightBlueButton: VFC<Props> = memo((props) => {
-  console.log("LightBlueButton");
   const { children, onClickButton } = props;
   return <SButton onClick={onClickButton}>{children}</SButton>;
 });

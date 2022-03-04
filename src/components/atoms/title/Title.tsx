@@ -4,7 +4,6 @@ import { Wrapper } from "../wrapper/Wrapper";
 
 // eslint-disable-next-line react/display-name
 export const Title: VFC = memo(() => {
-  console.log("Titleコンポーネント");
   return (
     <Wrapper>
       <STitle>Random Theme Generator</STitle>

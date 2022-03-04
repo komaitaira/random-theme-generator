@@ -10,7 +10,6 @@ import { FlexWrapper } from "../atoms/wrapper/FlexWrapper";
 
 // eslint-disable-next-line react/display-name
 export const PrimaryTheme: VFC = memo(() => {
-  console.log("\u001b[35m" + "PrimaryThemeコンポーネント");
   return (
     <div>
       <Title />
@@ -21,7 +20,6 @@ export const PrimaryTheme: VFC = memo(() => {
 
 // eslint-disable-next-line react/display-name
 export const SecondaryTheme: VFC = memo(() => {
-  console.log("\u001b[34m" + "SecondaryThemeコンポーネント");
   const { onClickBack } = useButton();
   return (
     <>

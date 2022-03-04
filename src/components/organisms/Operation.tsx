@@ -8,7 +8,6 @@ type Props = {
 
 export const Operation: VFC<Props> = (props) => {
   const { children } = props;
-  console.log("Operationコンポーネント");
   return <ExtendFlexWrapper>{children}</ExtendFlexWrapper>;
 };
 

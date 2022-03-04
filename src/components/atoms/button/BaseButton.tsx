@@ -1,5 +1,4 @@
 import styled from "styled-components";
-console.log("BaseButtonコンポーネント");
 export const BaseButton = styled.button`
   border-radius: 6px;
   max-width: 250px;

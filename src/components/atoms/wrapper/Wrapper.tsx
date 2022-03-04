@@ -8,7 +8,6 @@ type Props = {
 // eslint-disable-next-line react/display-name
 export const Wrapper: VFC<Props> = memo((props) => {
   const { children } = props;
-  console.log("Wrapperコンポーネント");
   return <SWrapper>{children}</SWrapper>;
 });
 
