@@ -24,7 +24,6 @@ export const FormLayout: VFC = memo(() => {
 
   const paths = Paths();
   const secondaryComponent = paths && paths.component;
-  const vw = window.innerWidth;
   const moveHeight = document.documentElement.clientHeight + "px";
 
   useEffect(() => {
@@ -33,16 +32,13 @@ export const FormLayout: VFC = memo(() => {
       document.documentElement.style.setProperty("--vh", `${vh}px`);
     };
     window.addEventListener("resize", () => {
-      if (vw === window.innerWidth) {
-        return;
-      }
       const formLayout = document.forms[0];
       if (formLayout) {
         formLayout.style.height = document.documentElement.clientHeight + "px";
         setFillHeight();
       }
     });
-  }, [vw]);
+  }, []);
 
   const onSubmit: SubmitHandler<Select> = useCallback(() => {
     if (Object.keys(methods.formState.errors).length === 0 && paths) {

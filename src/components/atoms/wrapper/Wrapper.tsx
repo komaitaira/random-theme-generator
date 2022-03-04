@@ -12,6 +12,4 @@ export const Wrapper: VFC<Props> = memo((props) => {
   return <SWrapper>{children}</SWrapper>;
 });
 
-export const SWrapper = styled.div`
-  padding: 2vw;
-`;
+export const SWrapper = styled.div``;
