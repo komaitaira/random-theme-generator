@@ -73,7 +73,6 @@ const MainWrapper = styled(SFlexWrapper)`
   position: relative;
   z-index: 100;
   padding: 0;
-  width: 90vw;
   top: 15vh;
   max-width: 880px;
 `;

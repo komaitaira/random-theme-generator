@@ -1,9 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Dongle:wght@300&display=swap");
+html {
+  visibility: hidden;
+}
+
+html.wf-active,
+html.loading-delay {
+  visibility: visible;
+}
 
 body {
   margin: 0;
   letter-spacing: 2px;
-  font-family: "Comfortaa", cursive;
+  font-family: "Comfortaa";
 }
 
 h1 {

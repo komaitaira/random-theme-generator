@@ -1,4 +1,4 @@
-import React, { memo, useState } from "react";
+import React, { memo, useState, VFC } from "react";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import ja from "date-fns/locale/ja";
@@ -7,13 +7,35 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { Controller, useFormContext } from "react-hook-form";
 
+interface InputProps {
+  value: string;
+  onChange: (value: string) => void;
+  onClick: () => void;
+}
+
 // eslint-disable-next-line react/display-name
-export const PeriodDatePicker = memo(() => {
+export const PeriodDatePicker: VFC = memo(() => {
   const initialDate = new Date();
   const [startDate, setStartDate] = useState(initialDate);
   const [select, setSelect] = useRecoilState(selectedPeriodState);
   registerLocale("ja", ja);
   const { register, control } = useFormContext();
+
+  const Input: VFC<InputProps> = ({ value, onClick, onChange }) => {
+    return (
+      <SInput
+        type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        onClick={onClick}
+        readOnly
+      />
+    );
+  };
+
+  const CustomInput = (props: any) => {
+    return <Input {...props} />;
+  };
 
   const handleChange = (date: Date) => {
     console.log(date); // 選択した日時
@@ -45,7 +67,7 @@ export const PeriodDatePicker = memo(() => {
           locale="ja"
           selected={new Date(select.selected_date)}
           onChange={handleChange}
-          customInput={<SInput />}
+          customInput={<CustomInput />}
         />
       )}
     />
