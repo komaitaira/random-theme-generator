@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import sqlite3
 
 app = FastAPI()
-origins = ["http://localhost:3000"]
+origins = ["http://localhost:3000", "https://random-theme-generator.vercel.app"]
 
 app.add_middleware(
     CORSMiddleware,
