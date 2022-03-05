@@ -30,7 +30,11 @@ export const useButton = () => {
     try {
       const res = await axios.get(`${API_ENDPOINT}${path}`);
       setThemeList(res.data.themelist);
-      navigate("/result");
+      if (res.data.themelist) {
+        navigate("/result");
+      } else {
+        throw new Error(`【Failed to get response】-${res}`);
+      }
     } catch (error) {
       console.error(error);
     } finally {
