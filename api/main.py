@@ -13,9 +13,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 conn = sqlite3.connect("./../db/wnjpn.db")
-@app.get("/")
-async def root():
-    return {"message": "false"}
 
 @app.get("/generate")
 async def generate(limit: int = 10):
