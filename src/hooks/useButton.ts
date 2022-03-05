@@ -1,14 +1,15 @@
 import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { generatedState } from "../store/generatedState";
 import { loadingState } from "../store/loadingState";
 import axios from "axios";
 axios.defaults.headers.post["Content-Type"] = "application/json;charset=utf-8";
 axios.defaults.headers.post["Access-Control-Allow-Origin"] = "*";
+const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 export const useButton = () => {
-  const [themeList, setThemeList] = useRecoilState(generatedState);
+  const setThemeList = useSetRecoilState(generatedState);
   const setLoading = useSetRecoilState(loadingState);
   const navigate = useNavigate();
 
@@ -27,7 +28,7 @@ export const useButton = () => {
   const onClickGenerate = useCallback(async (path: string) => {
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:8000${path}`);
+      const res = await axios.get(`${API_ENDPOINT}${path}`);
       setThemeList(res.data.themelist);
       navigate("/result");
     } catch (error) {

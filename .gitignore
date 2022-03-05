@@ -27,3 +27,6 @@ db
 
 # other
 .vscode
+
+# environment
+.env*
