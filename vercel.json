@@ -7,8 +7,5 @@
       "maxDuration": 10
     }
   },
-  "routes": [
-    { "src": "/generate", "dest": "api/main.py" },
-    { "src": "/", "dest": "build/index.html" }
-  ]
+  "routes": [{ "src": "/generate(*)", "dest": "api/main.py" }]
 }
