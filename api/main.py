@@ -40,6 +40,12 @@ async def generate(limit: int = 10):
     wordlist = [ record[2] for record in cur.fetchall()]
     cur.close() 
     connection.close()
-    return {"themelist": wordlist}
+    return {"themelist": [
+    "テスト",
+    "ナキハクチョウ",
+    "レイシ",
+    "天下太平",
+    "勢力がなくなる"
+    ]}
 
 
