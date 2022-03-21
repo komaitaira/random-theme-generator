@@ -15,6 +15,7 @@ app.add_middleware(
 )
 
 def get_connection():
+
     db = os.environ['POSTGRES_DB']
     user = os.environ['POSTGRES_USER']
     password = os.environ['POSTGRES_PASSWORD']
