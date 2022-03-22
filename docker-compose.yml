@@ -4,7 +4,7 @@ services:
     container_name: rtg-api
     build: 
       context: .
-      dockerfile: ./api/Dockerfile
+      dockerfile: ./docker/api/Dockerfile
     restart: always
     tty: true
     environment:
@@ -14,7 +14,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./api:/app
+      - ./docker/api:/app
     depends_on:
       - db
 
@@ -28,5 +28,5 @@ services:
       POSTGRES_USER: $POSTGRES_USER
       POSTGRES_PASSWORD: $POSTGRES_PASSWORD
     volumes:
-      - ./db/data:/var/lib/postgresql/data
-      - ./db/initdb:/docker-entrypoint-initdb.d
+      - ./docker/db/data:/var/lib/postgresql/data
+      - ./docker/db/initdb:/docker-entrypoint-initdb.d
