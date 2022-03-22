@@ -31,7 +31,6 @@ wnjpn.db
 
 #api
 api/__pycache__
-api/main.py
 
 # db
 db
