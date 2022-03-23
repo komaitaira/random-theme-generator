@@ -7,7 +7,7 @@ export const InfoBox = styled(SWrapper)`
   border: 5px solid #ddd;
   width: 85%;
   max-width: 880px;
-  max-height: 56vh;
+  max-height: 60vh;
   overflow-y: scroll;
   margin: auto;
   position: relative;
