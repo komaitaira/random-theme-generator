@@ -8,7 +8,12 @@ type Props = {
 
 export const Operation: VFC<Props> = (props) => {
   const { children } = props;
-  return <ExtendFlexWrapper>{children}</ExtendFlexWrapper>;
+  return (
+    <ExtendFlexWrapper>
+      {children}
+      <SSmall>© 2022 Taira Komai</SSmall>
+    </ExtendFlexWrapper>
+  );
 };
 
 const ExtendFlexWrapper = styled(SFlexWrapper)`
@@ -17,4 +22,12 @@ const ExtendFlexWrapper = styled(SFlexWrapper)`
   bottom: 0;
   position: absolute;
   width: 100%;
+`;
+
+const SSmall = styled.small`
+  position: absolute;
+  right: 2vw;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 `;
