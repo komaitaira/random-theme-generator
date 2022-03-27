@@ -15,7 +15,4 @@ export const InfoBox = styled(SWrapper)`
   @media screen and (max-width: 600px) {
     max-height: 45vh;
   }
-  @media screen and (max-height: 600px) {
-    max-height: 45vh;
-  }
 `;
