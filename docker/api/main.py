@@ -24,8 +24,14 @@ def get_connection():
 async def generate(limit: int = 10):
   connection = get_connection()
   cur = connection.cursor()
-  cur.execute(f"select * from word where lang = 'jpn' ORDER BY RANDOM() LIMIT {limit};")
-  wordlist = [ record[2] for record in cur.fetchall()]
-  cur.close() 
-  connection.close()
-  return {"themelist": wordlist}
+  if float(limit).is_integer():
+    if limit <= 10:
+      cur.execute(f"select * from word where lang = 'jpn' ORDER BY RANDOM() LIMIT {limit};")
+      wordlist = [ record[2] for record in cur.fetchall()]
+      cur.close()
+      connection.close()
+      return {"themelist": wordlist}
+    else:
+      return "value exceeds 10."
+  else:
+    return "value is not a number."
