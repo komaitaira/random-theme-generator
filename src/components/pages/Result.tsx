@@ -43,9 +43,9 @@ export const PrimaryResult: VFC = memo(() => {
 
 // eslint-disable-next-line react/display-name
 export const SecondaryResult: VFC = memo(() => {
-  const { isSelectedAll } = useCheckSelected();
+  const { periodState, isSelectedAll } = useCheckSelected();
   const themeList = useRecoilValue(generatedState);
-  const { onClickBack } = useButton();
+  const { onClickBack, onClickTweet } = useButton();
   const paths = Paths();
   return isSelectedAll() && themeList.length > 0 ? (
     <>
@@ -53,7 +53,9 @@ export const SecondaryResult: VFC = memo(() => {
         <WhiteButton onClickButton={() => onClickBack(paths.back)}>
           HOME
         </WhiteButton>
-        <LightBlueButton onClickButton={() => console.log("クリック")}>
+        <LightBlueButton
+          onClickButton={() => onClickTweet(themeList, periodState.selected)}
+        >
           TWEET
         </LightBlueButton>
       </Operation>
