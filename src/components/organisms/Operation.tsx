@@ -11,7 +11,16 @@ export const Operation: VFC<Props> = (props) => {
   return (
     <ExtendFlexWrapper>
       {children}
-      <SSmall>© 2022 Taira Komai</SSmall>
+      <SSmall>
+        © 2022{" "}
+        <SA
+          href="https://twitter.com/iburasann"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Taira Komai
+        </SA>
+      </SSmall>
     </ExtendFlexWrapper>
   );
 };
@@ -22,6 +31,11 @@ const ExtendFlexWrapper = styled(SFlexWrapper)`
   bottom: 0;
   position: absolute;
   width: 100%;
+`;
+
+const SA = styled.a`
+  text-decoration: none;
+  color: #000;
 `;
 
 const SSmall = styled.small`
