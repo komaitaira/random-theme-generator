@@ -42,5 +42,20 @@ export const useButton = () => {
     }
   }, []);
 
-  return { onClickBack, onClickNext };
+  const onClickTweet = useCallback(
+    (themeResult: Array<string>, periodResult) => {
+      const joinedThemeList = themeResult
+        .map((theme: string, index: number) => {
+          return `No.${index + 1} ${theme}\n`;
+        })
+        .join("");
+      const themeList = encodeURIComponent(joinedThemeList);
+      const period = encodeURIComponent(`撮影期限: ${periodResult}\n`);
+      const url = location.origin;
+      location.href = `https://twitter.com/intent/tweet?=&url=${url}&text=${themeList}${period}&hashtags=RandomThemeGenerator`;
+    },
+    []
+  );
+
+  return { onClickBack, onClickNext, onClickTweet };
 };
