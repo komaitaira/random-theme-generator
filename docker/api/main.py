@@ -35,4 +35,3 @@ async def generate(limit: int = 10):
       return "value exceeds 10."
   else:
     return "value is not a number."
-
