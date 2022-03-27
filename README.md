@@ -1,46 +1,38 @@
-# Getting Started with Create React App
+# Random Theme Generator for photographer
+<img width="1440" alt="スクリーンショット 2022-03-27 17 26 10" src="https://user-images.githubusercontent.com/63830279/160274108-c0d1018a-4c24-4405-a6ef-7dd6ef830357.png">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![giphy](https://user-images.githubusercontent.com/63830279/160273980-6a06c63f-9b89-4973-899f-e7bf64e5aaa9.gif)
 
-## Available Scripts
+## URL
+https://random-theme-generator.vercel.app/
 
-In the project directory, you can run:
+## About
+ある日、会社の先輩からカメラをいただいたが全然撮りに行ったりせず一向にうまくならないので、これは強制力が必要であると察した。
 
-### `yarn start`
+撮影テーマ・撮影期限を決めることで強制的に自分のケツを叩き、撮影に向かわせるためのアプリ。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+というのは手前上で、ただ作りたかっただけです🍞
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Libraries
+- アプリ内で利用される単語は、日本語ワードネットを使用。
 
-### `yarn test`
+http://compling.hss.ntu.edu.sg/wnja/index.ja.html
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Design
+- 要件定義/UI設計 Figma FigJam
 
-### `yarn build`
+## Frontend
+- React.js 17.0.2
+- TypeScript 4.4.2
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Backend
+- FastAPI 0.70.0
+- Python 3.8
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Database
+- Postgresql
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Infrastructure/Deployment
+- Docker
+- Vercel
+- Heroku
