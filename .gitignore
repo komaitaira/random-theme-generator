@@ -30,8 +30,8 @@ wnjpn.db
 .env*
 
 #api
-api/__pycache__
-api/main.py
+/docker/api/__pycache__
+/docker/api/main.py
 
 # db
 db
