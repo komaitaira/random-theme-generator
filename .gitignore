@@ -31,7 +31,6 @@ wnjpn.db
 
 #api
 /docker/api/__pycache__
-/docker/api/main.py
 
 # db
 db
