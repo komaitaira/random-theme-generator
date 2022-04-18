@@ -36,3 +36,6 @@ http://compling.hss.ntu.edu.sg/wnja/index.ja.html
 - Docker
 - Vercel
 - Heroku
+
+![スクリーンショット 2022-04-18 15 54 26](https://user-images.githubusercontent.com/63830279/163768503-20429d94-acb7-41f9-aa97-ae0a4e4225ab.png)
+
