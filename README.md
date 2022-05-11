@@ -37,10 +37,8 @@ http://compling.hss.ntu.edu.sg/wnja/index.ja.html
 - Vercel
 - Heroku
 
-## Design
-雑多ですが、figmaでデザインしてみました
-https://www.figma.com/file/vYIBxIUX1tzWb1cox6y3QS/%E5%86%99%E7%9C%9F%E3%81%AE%E9%A1%8C%E6%9D%90%E3%82%92%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%81%A7%E7%94%9F%E6%88%90%E3%81%97%E3%81%A6%E3%81%8F%E3%82%8C%E3%82%8B%E3%82%A2%E3%83%97%E3%83%AA?node-id=0%3A1
-
 ![スクリーンショット 2022-04-18 15 54 26](https://user-images.githubusercontent.com/63830279/163768503-20429d94-acb7-41f9-aa97-ae0a4e4225ab.png)
 
-
+## Design
+雑多ですが、figmaでデザインしてます
+https://www.figma.com/file/vYIBxIUX1tzWb1cox6y3QS/%E5%86%99%E7%9C%9F%E3%81%AE%E9%A1%8C%E6%9D%90%E3%82%92%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%81%A7%E7%94%9F%E6%88%90%E3%81%97%E3%81%A6%E3%81%8F%E3%82%8C%E3%82%8B%E3%82%A2%E3%83%97%E3%83%AA?node-id=0%3A1
