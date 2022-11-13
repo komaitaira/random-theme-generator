@@ -4,7 +4,9 @@
 ![giphy](https://user-images.githubusercontent.com/63830279/160273980-6a06c63f-9b89-4973-899f-e7bf64e5aaa9.gif)
 
 ## URL
-https://random-theme-generator.vercel.app/
+~~https://random-theme-generator.vercel.app/~~
+
+- 2022/11/13現在、API側停止済みのためテーマ生成はできません。クライアント側は動作します。
 
 ## About
 ある日、会社の先輩からカメラをいただいたが全然撮りに行ったりせず一向にうまくならないので、これは強制力が必要であると察した。
