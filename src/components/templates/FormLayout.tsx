@@ -18,7 +18,6 @@ type Select = {
 
 // eslint-disable-next-line react/display-name
 export const FormLayout: VFC = memo(() => {
-  console.log("\u001b[36m" + "FormLayoutコンポーネント");
   const { onClickNext } = useButton();
   const methods = useForm<Select>();
 

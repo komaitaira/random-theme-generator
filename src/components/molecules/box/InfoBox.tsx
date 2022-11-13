@@ -7,15 +7,15 @@ export const InfoBox = styled(SWrapper)`
   border: 5px solid #ddd;
   width: 85%;
   max-width: 880px;
-  max-height: 56vh;
+  max-height: 60vh;
   overflow-y: scroll;
   margin: auto;
   position: relative;
   z-index: 100;
-  @media screen and (max-height: 800px) {
-    max-height: 60vh;
+  @media screen and (max-width: 600px) {
+    max-height: 45vh;
   }
-  @media screen and (max-height: 653px) {
-    max-height: 55vh;
+  @media screen and (max-height: 600px) {
+    max-height: 45vh;
   }
 `;

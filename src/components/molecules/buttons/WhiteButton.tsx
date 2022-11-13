@@ -10,7 +10,6 @@ type Props = {
 
 // eslint-disable-next-line react/display-name
 export const WhiteButton: VFC<Props> = memo((props) => {
-  console.log("WhiteButton");
   const { children, onClickButton, disabled } = props;
   return (
     <SButton onClick={onClickButton} disabled={disabled}>

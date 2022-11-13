@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 // eslint-disable-next-line react/display-name
 export const Page404: VFC = memo(() => {
-  console.log("Page404コンポーネント");
   return (
     <div>
       <SMessage>

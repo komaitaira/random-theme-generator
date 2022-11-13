@@ -6,7 +6,6 @@ import { useFormContext } from "react-hook-form";
 
 // eslint-disable-next-line react/display-name
 export const ThemeSelect: VFC = memo(() => {
-  console.log("ThemeSelectコンポーネント");
   const setSelect = useSetRecoilState(selectedThemeState);
   const { register } = useFormContext();
 

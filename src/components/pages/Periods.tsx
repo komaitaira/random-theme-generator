@@ -11,7 +11,6 @@ import { Paths } from "../../routes/Paths";
 
 // eslint-disable-next-line react/display-name
 export const PrimaryPeriod: VFC = memo(() => {
-  console.log("PrimaryPeriodコンポーネント");
   return (
     <div>
       <Title />
@@ -22,7 +21,6 @@ export const PrimaryPeriod: VFC = memo(() => {
 
 // eslint-disable-next-line react/display-name
 export const SecondaryPeriod: VFC = memo(() => {
-  console.log("SecondaryPeriodコンポーネント");
   const { onClickBack } = useButton();
   const paths = Paths();
 

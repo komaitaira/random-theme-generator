@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# Random Theme Generator for photographer
+<img width="1440" alt="スクリーンショット 2022-03-27 17 26 10" src="https://user-images.githubusercontent.com/63830279/160274108-c0d1018a-4c24-4405-a6ef-7dd6ef830357.png">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![giphy](https://user-images.githubusercontent.com/63830279/160273980-6a06c63f-9b89-4973-899f-e7bf64e5aaa9.gif)
 
-## Available Scripts
+## URL
+~~https://random-theme-generator.vercel.app/~~
 
-In the project directory, you can run:
+- 2022/11/13現在、API側停止済みのためテーマ生成はできません。クライアント側は動作します。
 
-### `yarn start`
+## About
+ある日、会社の先輩からカメラをいただいたが全然撮りに行ったりせず一向にうまくならないので、これは強制力が必要であると察した。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+撮影テーマ・撮影期限を決めることで強制的に自分のケツを叩き、撮影に向かわせるためのアプリ。
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+というのは手前上で、ただ作りたかっただけです🍞
 
-### `yarn test`
+## Libraries
+- アプリ内で利用される単語は、日本語ワードネットを使用。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+http://compling.hss.ntu.edu.sg/wnja/index.ja.html
 
-### `yarn build`
+## Design
+- 要件定義/UI設計 Figma FigJam
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Frontend
+- React.js 17.0.2
+- TypeScript 4.4.2
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Backend
+- FastAPI 0.70.0
+- Python 3.8
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Database
+- Postgresql
 
-### `yarn eject`
+## Infrastructure/Deployment
+- Docker
+- Vercel
+- Heroku
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![スクリーンショット 2022-04-18 15 54 26](https://user-images.githubusercontent.com/63830279/163768503-20429d94-acb7-41f9-aa97-ae0a4e4225ab.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Design
+雑多ですが、figmaでデザインしてます
+https://www.figma.com/file/vYIBxIUX1tzWb1cox6y3QS/%E5%86%99%E7%9C%9F%E3%81%AE%E9%A1%8C%E6%9D%90%E3%82%92%E3%83%A9%E3%83%B3%E3%83%80%E3%83%A0%E3%81%A7%E7%94%9F%E6%88%90%E3%81%97%E3%81%A6%E3%81%8F%E3%82%8C%E3%82%8B%E3%82%A2%E3%83%97%E3%83%AA?node-id=0%3A1

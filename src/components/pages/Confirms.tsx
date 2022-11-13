@@ -17,7 +17,6 @@ import { Paths } from "../../routes/Paths";
 export const PrimaryConfirm: VFC = memo(() => {
   const { themeState, periodState, isSelectedAll } = useCheckSelected();
   const [loading] = useRecoilState(loadingState);
-  console.log("PrimaryConfirmコンポーネント");
   if (isSelectedAll()) {
     return loading ? (
       <FlexWrapper>
@@ -52,7 +51,6 @@ export const PrimaryConfirm: VFC = memo(() => {
 
 // eslint-disable-next-line react/display-name
 export const SecondaryConfirm: VFC = memo(() => {
-  console.log("SecondaryConfirmコンポーネント");
   const { isSelectedAll } = useCheckSelected();
   const [loading] = useRecoilState(loadingState);
   const { onClickBack } = useButton();

@@ -8,7 +8,6 @@ type Props = {
 
 // eslint-disable-next-line react/display-name
 export const OrangeButton: VFC<Props> = memo((props) => {
-  console.log("OrangeButton");
   const { children } = props;
   return <SButton type="submit">{children}</SButton>;
 });

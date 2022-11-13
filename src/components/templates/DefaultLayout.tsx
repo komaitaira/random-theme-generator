@@ -9,8 +9,6 @@ import { Paths } from "../../routes/Paths";
 
 // eslint-disable-next-line react/display-name
 export const DefaultLayout: VFC = memo(() => {
-  console.log("DefaultLayoutコンポーネント");
-
   const paths = Paths();
   const secondaryComponent = paths && paths.component;
   const moveHeight = document.documentElement.clientHeight + "px";

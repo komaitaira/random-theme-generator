@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 // eslint-disable-next-line react/display-name
 export const Wave: VFC = memo(() => {
-  console.log("Wave!!!");
   return (
     <SSvg
       className="waves"

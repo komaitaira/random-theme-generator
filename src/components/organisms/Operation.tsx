@@ -8,8 +8,21 @@ type Props = {
 
 export const Operation: VFC<Props> = (props) => {
   const { children } = props;
-  console.log("Operationコンポーネント");
-  return <ExtendFlexWrapper>{children}</ExtendFlexWrapper>;
+  return (
+    <ExtendFlexWrapper>
+      {children}
+      <SSmall>
+        © 2022{" "}
+        <SA
+          href="https://twitter.com/iburasann"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Taira Komai
+        </SA>
+      </SSmall>
+    </ExtendFlexWrapper>
+  );
 };
 
 const ExtendFlexWrapper = styled(SFlexWrapper)`
@@ -18,4 +31,17 @@ const ExtendFlexWrapper = styled(SFlexWrapper)`
   bottom: 0;
   position: absolute;
   width: 100%;
+`;
+
+const SA = styled.a`
+  text-decoration: none;
+  color: #000;
+`;
+
+const SSmall = styled.small`
+  position: absolute;
+  right: 2vw;
+  @media screen and (max-width: 1024px) {
+    display: none;
+  }
 `;

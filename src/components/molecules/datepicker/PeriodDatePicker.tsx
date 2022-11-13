@@ -7,12 +7,6 @@ import { useRecoilState } from "recoil";
 import styled from "styled-components";
 import { Controller, useFormContext } from "react-hook-form";
 
-interface InputProps {
-  value: string;
-  onChange: (value: string) => void;
-  onClick: () => void;
-}
-
 // eslint-disable-next-line react/display-name
 export const PeriodDatePicker: VFC = memo(() => {
   const initialDate = new Date();
@@ -21,24 +15,12 @@ export const PeriodDatePicker: VFC = memo(() => {
   registerLocale("ja", ja);
   const { register, control } = useFormContext();
 
-  const Input: VFC<InputProps> = ({ value, onClick, onChange }) => {
-    return (
-      <SInput
-        type="text"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        onClick={onClick}
-        readOnly
-      />
-    );
-  };
-
-  const CustomInput = (props: any) => {
-    return <Input {...props} />;
-  };
+  // eslint-disable-next-line react/display-name
+  const CustomInput = React.forwardRef((props: any, ref) => {
+    return <SInput {...props} forwardRef={ref} readOnly />;
+  });
 
   const handleChange = (date: Date) => {
-    console.log(date); // 選択した日時
     if (date) {
       const d = getDateObj(date);
       const selectedDay = `${d.year}年${d.month}月${d.day}日(${d.dayOfWeek})`;
